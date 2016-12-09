@@ -1,31 +1,91 @@
 <!-- public/views/nerd.html -->
 
-<div class="jumbotron text-center">
-    <h1>Location</h1>
+<div id="search" class="jumbotron text-center">
+  <div class="breadcrums">
+    <!-- RENDER BREADCRUMS ACCORDING TO STEP. S WHEN CLICK SHOW SECTION -->
+    <a href="#">location</a> / <a href="#">category</a> / <a href="#">activity</a>
+  </div>
 
+  <div id="location">
+    <h1>Location</h1>
     <select ng-model="selectedCity" ng-options="x for x in names">
       <option value="">-- Choose A City --</option>
     </select>
+  </div>
 
+  <div id="category">
     <h1>Category</h1>
     <select ng-model="selectedCategory" ng-options="x for x in category">
       <option value="">-- Choose A Category --</option>
     </select>
+  </div>
 
-    <h1>Activity</h1>
+  <div id="activity">
+    <h1>Choose an activity</h1>
+
+    <!--
     <select ng-model="selectedActivity" ng-options="x for x in activity">
       <option value="">-- Choose An Activity --</option>
     </select>
+    -->
+
+    <!-- RENDER ACTIVITIES BASED ON LOCATION AND CATEGORY -->
+    <div class="outdoor-activities">
+      <div class="activity" id="camping">camping</div>
+      <div class="activity" id="fishing">fishing</div>
+      <div class="activity" id="grill">grill</div>
+      <div class="activity" id="meditation">meditation</div>
+      <div class="activity" id="parking">parking</div>
+      <div class="activity" id="picnic">picnic</div>
+      <div class="activity" id="read">read</div>
+      <div class="activity" id="run">run</div>
+      <div class="activity" id="swim">swim</div>
+      <div class="activity" id="viewpoint">viewpoint</div>
+      <div class="activity" id="walk">walk</div>
+    </div>
+    <div class="sport-activities">
+      <div class="activity" id="cycling">cycling</div>
+      <div class="activity" id="football">football</div>
+      <div class="activity" id="golf">golf</div>
+      <div class="activity" id="gym">gym</div>
+      <div class="activity" id="iceskate">iceskate</div>
+      <div class="activity" id="skate">skate</div>
+      <div class="activity" id="ski">ski</div>
+      <div class="activity" id="tennis">tennis</div>
+    </div>
+    <div class="culture-activities">
+
+    </div>
+  </div>
 </div>
 
-<div style="text-align:center;">
-<button ng-click="resultFunction()">Result</button>
-</div>
+<div id="result">
+  <!--
+  <div style="text-align:center;">
+    <button ng-click="resultFunction()">Result</button>
+  </div>
 
-<div class="crop" style="width:535px;height:535px;overflow:hidden;align">
-<img ng-src="{{content}}" style="width:625px;height:625px"/>
-</div>
+  <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
+    <img ng-src="{{content}}" style="width:625px;height:625px"/>
+  </div>
 
-<div style="text-align:center;">
-<h1>{{name}}</h1>
+  <div class="spot">
+    <h1>{{name}}</h1>
+  </div>
+  -->
+
+  <!--
+  <div style="text-align:center;">
+    <button ng-click="resultFunction()">Result</button>
+  </div>
+-->
+
+  <div class="spot-image" class="crop">
+    <!--<img ng-src="{{content}}" style="width:625px;height:625px"/>-->
+    <img src="background-images/activities/viewpoint.jpg" />
+  </div>
+
+  <div class="spot-info">
+    <h1>Viewpoint</h1>
+  </div>
 </div>
