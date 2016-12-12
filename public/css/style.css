@@ -20,7 +20,7 @@ html, body {
   height: 1000px;
   width: 100%;
 }
-.slogan {
+.slogan h1 {
   text-align: center;
   color: #fff;
   font-size: 34px;
