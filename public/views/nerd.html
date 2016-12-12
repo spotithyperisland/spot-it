@@ -8,24 +8,26 @@
     </select>
 
     <h1>Category</h1>
-    <select ng-model="selectedCategory" ng-options="x for x in category">
-      <option value="">-- Choose A Category --</option>
+    <select ng-model="categorySelected" ng-change="changedCategory(categorySelected)" data-ng-options="category for category in category">
+    <option value="">Select Category</option>
     </select>
 
     <h1>Activity</h1>
-    <select ng-model="selectedActivity" ng-options="x for x in activity">
-      <option value="">-- Choose An Activity --</option>
-    </select>
+    <select  ng-model="activitySelected" ng-change="changedActivity(activitySelected)" data-ng-options="activity for activity in activity">
+    <option value="">Select Activity</option>
+</select>
 </div>
 
+
 <div style="text-align:center;">
-<button ng-click="resultFunction()">Result</button>
+    <h1>{{errorMessage}}</h1>
+    <button ng-click="resultFunction()">Result</button>
 </div>
 
 <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
-<img ng-src="{{content}}" style="width:625px;height:625px"/>
+    <img ng-src="{{content}}" style="width:625px;height:625px" />
 </div>
 
 <div style="text-align:center;">
-<h1>{{name}}</h1>
+    <h1>{{name}}</h1>
 </div>
