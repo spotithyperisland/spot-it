@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Acherus Grotesque";
-  src: url('fonts/acherus_grotesque_-_regular-webfont.woff');
+  src: url('../fonts/acherus_grotesque_-_regular-webfont.woff');
 }
 html, body {
   margin: 0;

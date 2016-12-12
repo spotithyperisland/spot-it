@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<base href="/">-->
+    <base href="/">
 
     <title>Spot It</title>
 
@@ -25,14 +25,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
+
       $(".category").each(function(index) {
+        alert('test');
         var category_id = $(this).attr("id");
-        $("#"+category_id).css('background', 'url(background-images/categories/'+$(this).text()+'.jpg)');
+        $("#"+category_id).css('background', 'url(../background-images/categories/'+$(this).text()+'.jpg)');
         $(".category").css('background-color', 'rgba(0, 0, 0, 0.7)');
       });
       $(".activity").each(function(index) {
         var activity_id = $(this).attr("id");
-        $("#"+activity_id).css('background', 'url(background-images/activities/'+$(this).text()+'.jpg)');
+        $("#"+activity_id).css('background', 'url(../background-images/activities/'+$(this).text()+'.jpg)');
       });
     });
     </script>
