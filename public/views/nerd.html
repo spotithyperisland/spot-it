@@ -6,28 +6,23 @@
     <a href="#">location</a> / <a href="#">category</a> / <a href="#">activity</a>
   </div>
 
-  <div id="location">
-    <h1>Location</h1>
-    <select ng-model="selectedCity" ng-options="x for x in names">
-      <option value="">-- Choose A City --</option>
-    </select>
+  <div id="location" ng-hide="selectedCity = selectedCity">
+      <h1>Location</h1>
+      <select ng-model="selectedCity" ng-options="x for x in names">
+        <option value="">-- Choose A City --</option>
+      </select>
   </div>
 
-  <div id="category">
-    <h1>Category</h1>
-    <select ng-model="selectedCategory" ng-options="x for x in category">
-      <option value="">-- Choose A Category --</option>
-    </select>
+  <div id="category" ng-hide="selectedCategory" ng-show="selectedCity = selectedCity">
+      <h1>Category</h1>
+      <select ng-model="selectedCategory" ng-options="x for x in category">
+        <option value="">-- Choose A Category --</option>
+      </select>
+      <!--<a href="#" ng-click="activity = !selectedActivity" class="btn btn-primary btn-lg">Next</a>-->
   </div>
 
-  <div id="activity">
+  <div id="activity" ng-hide="selectedActivity" ng-show="selectedCategory = selectedCategory">
     <h1>Choose an activity</h1>
-
-    <!--
-    <select ng-model="selectedActivity" ng-options="x for x in activity">
-      <option value="">-- Choose An Activity --</option>
-    </select>
-    -->
 
     <!-- RENDER ACTIVITIES BASED ON LOCATION AND CATEGORY -->
     <div class="outdoor-activities">
