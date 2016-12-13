@@ -23,30 +23,12 @@
     <script src="js/app.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script>
-    $(document).ready(function() {
-
-      $(".category").each(function(index) {
-        alert('test');
-        var category_id = $(this).attr("id");
-        $("#"+category_id).css('background', 'url(../background-images/categories/'+$(this).text()+'.jpg)');
-        $(".category").css('background-color', 'rgba(0, 0, 0, 0.7)');
-      });
-      $(".activity").each(function(index) {
-        var activity_id = $(this).attr("id");
-        $("#"+activity_id).css('background', 'url(../background-images/activities/'+$(this).text()+'.jpg)');
-      });
-    });
-    </script>
 </head>
 <body ng-app="sampleApp" ng-controller="NerdController">
-<div id="landing-page" class="container">
 
     <!-- HEADER -->
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="images/logo-white.png"/></a>
-        </div>
+    <nav id="header" class="navbar navbar-inverse">
+      <a class="navbar-brand" href="/"><img src="images/logo-white.png"/></a>
 
         <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
         <!--
@@ -57,8 +39,7 @@
     </nav>
 
     <!-- ANGULAR DYNAMIC CONTENT -->
-    <div ng-view></div>
+    <div id="content" ng-view></div>
 
-</div>
 </body>
 </html>
