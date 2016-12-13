@@ -2,136 +2,105 @@
 
 <div id="content-inner-container" class="jumbotron text-center">
 
-    <div id="breadcrums">
-        <!-- RENDER BREADCRUMS ACCORDING TO STEP. S WHEN CLICK SHOW SECTION -->
-        <a href="#">location</a> / <a href="#">category</a> / <a href="#">activity</a>
-    </div>
+  <div id="breadcrums">
+    <!-- RENDER BREADCRUMS ACCORDING TO STEP. S WHEN CLICK SHOW SECTION -->
+    <a href="#">location</a> / <a href="#">category</a> / <a href="#">activity</a>
+  </div>
 
-    <div id="search">
+  <div id="search">
 
-        <div id="location">
-            <h1>Location</h1>
-            <select ng-model="selectedCity" ng-options="x for x in names">
+    <div id="location" ng-hide="selectedCity = selectedCity">
+      <h1>Location</h1>
+      <select ng-model="selectedCity" ng-options="x for x in names">
         <option value="">-- Choose A City --</option>
       </select>
-        </div>
+    </div>
 
-        <div id="category">
-            <h1>Category</h1>
-            <!--
+    <div id="category" ng-hide="selectedCategory" ng-show="selectedCity = selectedCity">
+      <h1>Category</h1>
+
       <select ng-model="selectedCategory" ng-options="x for x in category">
         <option value="">-- Choose A Category --</option>
       </select>
+      <!--
+      <a href="#" ng-click="activity = !selectedActivity" class="btn btn-primary btn-lg">Next</a>
       -->
-            <div class="category" id="outdoor"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Outdoor</div>
-            <div class="category" id="sport"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Sport</div>
-            <div class="category" id="culture"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Culture</div>
+      <div class="category" id="outdoor"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Outdoor</div>
+      <div class="category" id="sport"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Sport</div>
+      <div class="category" id="culture"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Culture</div>
+    </div>
 
-            <div id="location" ng-hide="selectedCity = selectedCity">
-                <h1>Location</h1>
-                <select ng-model="selectedCity" ng-options="x for x in names">
-        <option value="">-- Choose A City --</option>
-      </select>
-            </div>
+    <div id="activity" ng-hide="selectedActivity" ng-show="selectedCategory = selectedCategory">
+      <h1>Choose an activity</h1>
 
-            <div id="category" ng-hide="selectedCategory" ng-show="selectedCity = selectedCity">
-                <h1>Category</h1>
-                <select ng-model="selectedCategory" ng-options="x for x in category">
-        <option value="">-- Choose A Category --</option>
-      </select>
-                <!--<a href="#" ng-click="activity = !selectedActivity" class="btn btn-primary btn-lg">Next</a>-->
-            </div>
-
-            <div id="activity" ng-hide="selectedActivity" ng-show="selectedCategory = selectedCategory">
-                <h1>Choose an activity</h1>
-
-                <!-- RENDER ACTIVITIES BASED ON LOCATION AND CATEGORY -->
-                <div class="outdoor-activities">
-                    <div class="activity" id="camping">camping</div>
-                    <div class="activity" id="fishing">fishing</div>
-                    <div class="activity" id="grill">grill</div>
-                    <div class="activity" id="meditation">meditation</div>
-                    <div class="activity" id="parking">parking</div>
-                    <div class="activity" id="picnic">picnic</div>
-                    <div class="activity" id="read">read</div>
-                    <div class="activity" id="run">run</div>
-                    <div class="activity" id="swim">swim</div>
-                    <div class="activity" id="viewpoint">viewpoint</div>
-                    <div class="activity" id="walk">walk</div>
-
-                </div>
-
-                <div id="activity">
-                    <h1>Choose an activity</h1>
-
-                    <!--
       <select ng-model="selectedActivity" ng-options="x for x in activity">
         <option value="">-- Choose An Activity --</option>
       </select>
-      -->
 
-                    <!-- RENDER ACTIVITIES BASED ON LOCATION AND CATEGORY -->
-                    <div class="outdoor-activities">
-                        <div class="activity" id="camping"><img src="/background-images/activities/test.jpg" alt="Camping" height="" width="">Camping</div>
-                        <div class="activity" id="fishing"><img src="/background-images/activities/test.jpg" alt="Fishing" height="" width="">Fishing</div>
-                        <div class="activity" id="grill"><img src="/background-images/activities/test.jpg" alt="Grill" height="" width="">Grill</div>
-                        <div class="activity" id="meditation"><img src="/background-images/activities/test.jpg" alt="Meditation" height="" width="">Meditation</div>
-                        <div class="activity" id="parking"><img src="/background-images/activities/test.jpg" alt="Parking" height="" width="">Parking</div>
-                        <div class="activity" id="picnic"><img src="/background-images/activities/test.jpg" alt="Picnic" height="" width="">Picnic</div>
-                        <div class="activity" id="read"><img src="/background-images/activities/test.jpg" alt="Read" height="" width="">Read</div>
-                        <div class="activity" id="run"><img src="/background-images/activities/test.jpg" alt="Run" height="" width="">Run</div>
-                        <div class="activity" id="swim"><img src="/background-images/activities/test.jpg" alt="Swim" height="" width="">Swim</div>
-                        <div class="activity" id="viewpoint"><img src="/background-images/activities/test.jpg" alt="Viewpoint" height="" width="">Viewpoint</div>
-                        <div class="activity" id="walk"><img src="/background-images/activities/test.jpg" alt="Walk" height="" width="">Walk</div>
-                    </div>
-                    <div class="sport-activities">
-                        <div class="activity" id="cycling"><img src="/background-images/activities/test.jpg" alt="Cycling" height="" width="">Cycling</div>
-                        <div class="activity" id="football"><img src="/background-images/activities/test.jpg" alt="Football" height="" width="">Football</div>
-                        <div class="activity" id="golf"><img src="/background-images/activities/test.jpg" alt="Golf" height="" width="">Golf</div>
-                        <div class="activity" id="gym"><img src="/background-images/activities/test.jpg" alt="Gym" height="" width="">Gym</div>
-                        <div class="activity" id="iceskate"><img src="/background-images/activities/test.jpg" alt="Iceskate" height="" width="">Iceskate</div>
-                        <div class="activity" id="skate"><img src="/background-images/activities/test.jpg" alt="Skate" height="" width="">Skate</div>
-                        <div class="activity" id="ski"><img src="/background-images/activities/test.jpg" alt="Ski" height="" width="">Ski</div>
-                        <div class="activity" id="tennis"><img src="/background-images/activities/test.jpg" alt="Tennis" height="" width="">Tennis</div>
-                    </div>
-                    <div class="culture-activities">
+      <!-- RENDER ACTIVITIES BASED ON LOCATION AND CATEGORY -->
+      <div class="outdoor-activities">
+        <div class="activity" id="camping"><img src="/background-images/activities/test.jpg" alt="Camping" height="" width="">Camping</div>
+        <div class="activity" id="fishing"><img src="/background-images/activities/test.jpg" alt="Fishing" height="" width="">Fishing</div>
+        <div class="activity" id="grill"><img src="/background-images/activities/test.jpg" alt="Grill" height="" width="">Grill</div>
+        <div class="activity" id="meditation"><img src="/background-images/activities/test.jpg" alt="Meditation" height="" width="">Meditation</div>
+        <div class="activity" id="parking"><img src="/background-images/activities/test.jpg" alt="Parking" height="" width="">Parking</div>
+        <div class="activity" id="picnic"><img src="/background-images/activities/test.jpg" alt="Picnic" height="" width="">Picnic</div>
+        <div class="activity" id="read"><img src="/background-images/activities/test.jpg" alt="Read" height="" width="">Read</div>
+        <div class="activity" id="run"><img src="/background-images/activities/test.jpg" alt="Run" height="" width="">Run</div>
+        <div class="activity" id="swim"><img src="/background-images/activities/test.jpg" alt="Swim" height="" width="">Swim</div>
+        <div class="activity" id="viewpoint"><img src="/background-images/activities/test.jpg" alt="Viewpoint" height="" width="">Viewpoint</div>
+        <div class="activity" id="walk"><img src="/background-images/activities/test.jpg" alt="Walk" height="" width="">Walk</div>
+      </div>
+      <div class="sport-activities">
+        <div class="activity" id="cycling"><img src="/background-images/activities/test.jpg" alt="Cycling" height="" width="">Cycling</div>
+        <div class="activity" id="football"><img src="/background-images/activities/test.jpg" alt="Football" height="" width="">Football</div>
+        <div class="activity" id="golf"><img src="/background-images/activities/test.jpg" alt="Golf" height="" width="">Golf</div>
+        <div class="activity" id="gym"><img src="/background-images/activities/test.jpg" alt="Gym" height="" width="">Gym</div>
+        <div class="activity" id="iceskate"><img src="/background-images/activities/test.jpg" alt="Iceskate" height="" width="">Iceskate</div>
+        <div class="activity" id="skate"><img src="/background-images/activities/test.jpg" alt="Skate" height="" width="">Skate</div>
+        <div class="activity" id="ski"><img src="/background-images/activities/test.jpg" alt="Ski" height="" width="">Ski</div>
+        <div class="activity" id="tennis"><img src="/background-images/activities/test.jpg" alt="Tennis" height="" width="">Tennis</div>
+      </div>
+      <div class="culture-activities">
 
-                    </div>
-                </div>
+      </div>
+    </div>
 
-                <div id="spot-list">
-                    <!-- LIST ALL 500PX SPOTS FROM LOCATION, CATEGORY AND ACTIVITY -->
-                </div>
+    <div id="spot-list">
+      <!-- LIST ALL 500PX SPOTS FROM LOCATION, CATEGORY AND ACTIVITY -->
+    </div>
 
-                <div id="spot">
-                    <!--
+    <div id="spot">
+      <!--
       <div style="text-align:center;">
-        <button ng-click="resultFunction()">Result</button>
+      <button ng-click="resultFunction()">Result</button>
       </div>
 
       <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
-        <img ng-src="{{content}}" style="width:625px;height:625px"/>
+      <img ng-src="{{content}}" style="width:625px;height:625px"/>
       </div>
 
       <div class="spot">
-        <h1>{{name}}</h1>
+      <h1>{{name}}</h1>
       </div>
       -->
 
-                    <!--
+      <!--
       <div style="text-align:center;">
-        <button ng-click="resultFunction()">Result</button>
+      <button ng-click="resultFunction()">Result</button>
       </div>
       -->
+      </div>
+      <div class="spot-image" class="crop">
+        <!--<img ng-src="{{content}}" style="width:625px;height:625px"/>-->
+        <img src="background-images/activities/viewpoint.jpg" />
+      </div>
 
-                    <div class="spot-image" class="crop">
-                        <!--<img ng-src="{{content}}" style="width:625px;height:625px"/>-->
-                        <img src="background-images/activities/viewpoint.jpg" />
-                    </div>
+      <div class="spot-info">
+        <h1>Viewpoint</h1>
+      </div>
 
-                    <div class="spot-info">
-                        <h1>Viewpoint</h1>
-                    </div>
-                </div>
+    </div>
+  </div>
 
-            </div>
+</div>
