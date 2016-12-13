@@ -10,21 +10,38 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
   font-family: "Acherus Grotesque", Verdana, Tahoma;
 }
 h1, h2, h3, p, a {
   margin: 0;
   padding: 0;
 }
-
+.jumbotron {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+}
+.navbar-inverse {
+  background-color: transparent;
+}
 
 /* INDEX - HEADER AND CONTENT */
+#container {
+  background: url('/../images/bg.jpg') no-repeat;
+  background-size: cover;
+  height: auto;
+  width: 100%;
+}
 #header {
   height: 100%;
   height: 75px;
   margin: 0;
   padding: 0;
-  background: rgba(0, 0, 0, 0.5);
+  /*background-color: transparent;*/
   border: 0;
   border-radius: 0;
 }
@@ -43,52 +60,71 @@ h1, h2, h3, p, a {
   height: 35px;
 }
 #content {
+  /*
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
+  */
 }
-
 
 /* LANDING PAGE */
 #landing-page {
-  background: url('/../images/bg.jpg') no-repeat;
-  background-size: cover;
-  float: left;
-  height: 1000px;
-  width: 100%;
+
 }
 #landing-page .slogan {
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
+  padding: 8% 0 16% 0;
 }
 #landing-page .slogan h1 {
   text-align: center;
   color: #fff;
   font-size: 34px;
-  padding: 8% 0;
+  padding: 0 0 12% 0;
 }
 #landing-page .slogan .cta {
   width: 400px;
   height: 60px;
   margin: 0 auto;
-  background-color: #879ca2;
+  background-color: #8ecc43;
   border-radius: 8px;
-  -webkit-box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, .75);
-  -moz-box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, .75);
-  box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, .75);
-  border: 2px solid #d6d3d3;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 }
 #landing-page .slogan .cta a {
   color: #000;
   text-decoration: none;
   width: 100%;
-  display: block;
-  font-weight: 900;
-  font-size: 34px;
+  height: 100%;
+  font-size: 38px;
   text-align: center;
-  color: #d7d4d4;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* FOOTER */
+#footer {
+  width: 90%;
+  margin: 2% 5%;
+  background-color: #fff;
+}
+#footer .footer-box {
+  width: 27.333%;
+  margin: 3%;
+  float: left;
+}
+#footer .footer-box h2 {
+  font-size: 18px;
+  font-weight: 900;
+  padding: 5% 0;
+  min-height: 60px;
+}
+#footer .footer-box p {
+  font-size: 14px;
 }
 
 /* APP */
