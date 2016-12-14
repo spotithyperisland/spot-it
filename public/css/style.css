@@ -137,13 +137,6 @@ h1, h2, h3, p, a {
   padding: 0;
   margin: 0;
 }
-#content-inner-container img {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  vertical-align: top;
-}
 
 #breadcrums {
   font-size: 18px;
@@ -154,10 +147,13 @@ h1, h2, h3, p, a {
   margin: 0;
   background-color: green;
   text-align: left;
+  display: table;
 }
 #breadcrums a {
   color: #000;
   text-decoration: none;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 #search {
@@ -190,12 +186,28 @@ h1, h2, h3, p, a {
   float: left;
   margin: 1%;
   text-align: center;
-  height: 200px;
-  line-height: 200px;
+  height: auto;
+  line-height: auto;
   font-size: 32px;
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+#category .category img {
+  width: 100%;
+}
+#category .category h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 28% 0;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 /* activity */
@@ -207,13 +219,29 @@ h1, h2, h3, p, a {
   float: left;
   margin: 1%;
   text-align: center;
-  height: 150px;
-  line-height: 150px;
-  font-size: 26px;
+  height: auto;
+  line-height: auto;
+  font-size: 18px;
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+#activity .activity img {
+  width: 100%;
+}
+#activity .activity h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 28% 0;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 /* spot list */
