@@ -2,6 +2,8 @@
 
 <div id="content-inner-container" class="jumbotron text-center">
 
+<!--*********************      BREADCRUMS     *********************-->
+
   <div id="breadcrums">
     <!-- RENDER BREADCRUMS ACCORDING TO STEP. S WHEN CLICK SHOW SECTION -->
     <a href="#">location</a> / <a href="#">category</a> / <a href="#">activity</a>
@@ -9,12 +11,16 @@
 
   <div id="search">
 
+<!--*********************      SELECT LOCATION     *********************-->
+
     <div id="location" ng-hide="selectedCity = selectedCity">
       <h1>Location</h1>
       <select ng-model="selectedCity" ng-options="x for x in names">
         <option value="">-- Choose A City --</option>
       </select>
     </div>
+
+<!--*********************      SELECT CATEGORY     *********************-->
 
     <div id="category" ng-hide="selectedCategory" ng-show="selectedCity = selectedCity">
       <h1>Category</h1>
@@ -29,6 +35,8 @@
       <div class="category" id="sport"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Sport</div>
       <div class="category" id="culture"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Culture</div>
     </div>
+
+    <!--*******************      SELECT ACTIVITY     *******************-->
 
     <div id="activity" ng-hide="selectedActivity" ng-show="selectedCategory = selectedCategory">
       <h1>Choose an activity</h1>
@@ -60,6 +68,8 @@
         <div class="activity" id="swimming"><img src="/background-images/activities/swimming.jpg" alt="Swimming" height="" width="">Swimming</div>
         <div class="activity" id="walking"><img src="/background-images/activities/walking.jpg" alt="Walking" height="" width="">Walking</div>
       </div>
+
+
       <div class="sport-activities">
         <div class="activity" id="cycling"><img src="/background-images/activities/cycling.jpg" alt="Cycling" height="" width="">Cycling</div>
         <div class="activity" id="fishing"><img src="/background-images/activities/fishing.jpg" alt="Fishing" height="" width="">Fishing</div>
@@ -82,11 +92,15 @@
       </div>
     </div>
 
+<!--*********************      RESULTS     *********************-->
+
     <div id="spot-list">
       <!-- LIST ALL 500PX SPOTS FROM LOCATION, CATEGORY AND ACTIVITY -->
     </div>
 
     <div id="spot">
+
+  <!--********************      RESULT DETAILS     ********************-->
       <!--
       <div style="text-align:center;">
       <button ng-click="resultFunction()">Result</button>
@@ -107,6 +121,7 @@
       </div>
       -->
       </div>
+
       <div class="spot-image" class="crop">
         <!--<img ng-src="{{content}}" style="width:625px;height:625px"/>-->
         <img src="background-images/activities/viewpoint.jpg" />
