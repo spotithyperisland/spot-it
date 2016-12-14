@@ -34,6 +34,7 @@ h1, h2, h3, p, a {
   background: url('/../images/bg.jpg') no-repeat;
   background-size: cover;
   height: auto;
+  height: 100%;
   width: 100%;
 }
 #header {
@@ -108,9 +109,10 @@ h1, h2, h3, p, a {
 
 /* FOOTER */
 #footer {
-  width: 90%;
-  margin: 2% 5%;
+  width: 100%;
+  padding: 2% 5%;
   background-color: #fff;
+  float: left;
 }
 #footer .footer-box {
   width: 27.333%;
