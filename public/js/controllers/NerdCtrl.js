@@ -7,69 +7,151 @@ app.controller('NerdController', function($http) {
 
     vm.activity = ["walk", "swim", "run"];
 
-    vm.categories =
-    [
+    vm.categories =[
     {
-      icon: '/background-images/categories/test.jpg',
-      name: 'sports',
-      /*vm.activities: {
-        icon: '/background-images/activities/test.jpg',
-        name: 'football',
-      }*/
+      'icon': '/background-images/categories/sport.jpg',
+      'name': 'sports',
+      'activities':[
+        {
+          'icon': '/background-images/activities/cycling.jpg',
+          'name': 'cycling'},
+        {
+          'icon': '/background-images/activities/football.jpg',
+          'name': 'football'},
+        {
+          'icon': '/background-images/activities/fishing.jpg',
+          'name': 'fishing'},
+        {
+          'icon': '/background-images/activities/golfing.jpg',
+          'name': 'golfing'},
+        {
+          'icon': '/background-images/activities/gym.jpg',
+          'name': 'gym'},
+        {
+          'icon': '/background-images/activities/skiing.jpg',
+          'name': 'skiing'},
+        {
+          'icon': '/background-images/activities/tennis.jpg',
+          'name': 'tennis'},
+      ]
     },
     {
-      icon: '/background-images/categories/test.jpg',
-      name: 'outdoor',
-      /*vm.activities: {
-        icon: '/background-images/activities/test.jpg',
-        name: 'football',
-      }*/
+      'icon': '/background-images/categories/outdoor.jpg',
+      'name': 'outdoor',
+      'activities':[
+        {
+          'icon': '/background-images/activities/archipelago.jpg',
+          'name': 'archipelago',
+        },
+        {
+          'icon': '/background-images/activities/birdwatching.jpg',
+          'name': 'birdwatching',
+        },
+        {
+          'icon': '/background-images/activities/camping.jpg',
+          'name': 'camping',
+        },
+        {
+          'icon': '/background-images/activities/climbing.jpg',
+          'name': 'climbing',
+        },
+        {
+          'icon': '/background-images/activities/dogpark.jpg',
+          'name': 'dogpark',
+        },
+        {
+          'icon': '/background-images/activities/grill.jpg',
+          'name': 'grill',
+        },
+        {
+          'icon': '/background-images/activities/horsebackriding.jpg',
+          'name': 'horsebackriding',
+        },
+        {
+          'icon': '/background-images/activities/hunting.jpg',
+          'name': 'hunting',
+        },
+        {
+          'icon': '/background-images/activities/iceskating.jpg',
+          'name': 'iceskating',
+        },
+        {
+          'icon': '/background-images/activities/kayaking.jpg',
+          'name': 'kayaking',
+        },
+        {
+          'icon': '/background-images/activities/mushroompicking.jpg',
+          'name': 'mushroompicking',
+        },
+        {
+          'icon': '/background-images/activities/northernlight.jpg',
+          'name': 'northernlight',
+        },
+        {
+          'icon': '/background-images/activities/park.jpg',
+          'name': 'park',
+        },
+        {
+          'icon': '/background-images/activities/parking.jpg',
+          'name': 'parking',
+        },
+        {
+          'icon': '/background-images/activities/picnic.jpg',
+          'name': 'picnic',
+        },
+        {
+          'icon': '/background-images/activities/running.jpg',
+          'name': 'running',
+        },
+        {
+          'icon': '/background-images/activities/skateing.jpg',
+          'name': 'skateing',
+        },
+        {
+          'icon': '/background-images/activities/surfing.jpg',
+          'name': 'surfing',
+        },
+        {
+          'icon': '/background-images/activities/swimming.jpg',
+          'name': 'swimming',
+        },
+        {
+          'icon': '/background-images/activities/walking.jpg',
+          'name': 'walking',
+        },
+      ]
     },
     {
-      icon: '/background-images/categories/test.jpg',
-      name: 'culture',
-      /*vm.activities: {
-        icon: '/background-images/activities/test.jpg',
-        name: 'football',
-      }*/
-    }
+      'icon': '/background-images/categories/sport.jpg',
+      'name': 'lesiure',
+      'activities':[
+        {
+          'icon': '/background-images/activities/dating.jpg',
+          'name': 'dating'},
+        {
+          'icon': '/background-images/activities/festival.jpg',
+          'name': 'festival'},
+        {
+          'icon': '/background-images/activities/reading.jpg',
+          'name': 'reading'},
+        {
+          'icon': '/background-images/activities/rollerskating.jpg',
+          'name': 'rollerskating'},
+        {
+          'icon': '/background-images/activities/stargazing.jpg',
+          'name': 'stargazing'},
+        {
+          'icon': '/background-images/activities/sunset.jpg',
+          'name': 'sunset'},
+        {
+          'icon': '/background-images/activities/viewpont.jpg',
+          'name': 'viewpont'},
+          {
+            'icon': '/background-images/activities/waterfall.jpg',
+            'name': 'waterfall'},
+      ]
+    },
   ];
-
-  vm.getCategoryName = function() {
-    return vm.category[0].name;
-  };
-
-// --*******************      SELECT ACTIVITY     *******************--
-/* user input for activity ==================
-    vm.getActivity = function() {
-      vm.userActivity =  storeData.getUserActivity();
-    }
-
-    vm.setActivity = function(activity) {
-      storeData.setUserActivity(activity);
-    }
-
-// --*********************      SELECT CATEGORY     *********************--
-
-app.directive('appInfo', function() {
-  return {
-    restrict: 'E',
-    scope: {
-      info: '='
-    },
-    templateUrl: 'js/directives/appInfo.html'
-  };
-});
-
-    vm.getCategory = function() {
-      vm.userCategory =  storeData.getUserCategory();
-    }
-
-    vm.setCategory = function(category) {
-      storeData.setUserCategory(category);
-    }*/
-
-            // how can I make sure it includes any of them and not just [0]
 
 // --*********************      RESULTS     *********************--
 
@@ -101,20 +183,3 @@ app.directive('appInfo', function() {
 
   }
 })
-/*.service("storeData", function(){
-  this.setUserActivity = function(activity) {
-    this.activity = activity;
-  }
-
-  this.setUserCategory = function(category) {
-    this.category = category;
-  }
-
-      this.getUserActivity = function() {
-        return this.activity;
-      }
-
-      this.getUserCategory = function() {
-        return this.category;
-      }
-    });*/
