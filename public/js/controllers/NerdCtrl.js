@@ -156,17 +156,15 @@ app.controller('NerdController', function($http) {
 // --*********************      RESULTS     *********************--
 
     vm.resultFunction = function() {
-      let consumer_key = "qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE";
-      let location = {lat: '59.3293', lng: '18.063240'}; // somehow get detail
-      let radius = '5'; // user input in km or predefined*
-      //let activity = "walk";
-      //let category = "park";
+      const consumer_key = "qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE";
+      const location = {lat: '59.3293', lng: '18.063240'}; // somehow get detail
+      const radius = '5'; // user input in km or predefined*
 
        $http.get("https://api.500px.com/v1/photos/search?term="+vm.selectedCategory.name+"&tag="+vm.selectedActivity.name+"&image_size=%201080&geo="+location.lat+"%2C"+location.lng+"%2C"+radius+"km&consumer_key="+consumer_key)
 
        .then(function(response) {
 
-           var photos = response.data.photos;
+           const photos = response.data.photos;
 
            for (i = 0; i < photos.length; i++){
              vm.content = photos["0"].images["0"].https_url;
