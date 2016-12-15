@@ -1,18 +1,29 @@
 <!-- public/views/nerd.html -->
+<div id="app" class="jumbotron">
 
-<div id="content-inner-container" class="jumbotron text-center">
+  <!-- HEADER -->
+  <nav id="header" class="navbar navbar-inverse">
+    <div class="wrapper">
+      <a class="navbar-brand" href="/"><img src="images/logo-black.png"/></a>
+        <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+        <!--
+        <ul class="nav navbar-nav">
+            <li><a href="/nerds">App</a></li>
+        </ul>
+        -->
+      <a class="menu-icon" href="mailto:hyperspotit@gmail.com"><img src="images/email.png"/></a>
+    </div>
+  </nav>
 
-<!--*********************      BREADCRUMS     *********************-->
-
+  <!--*********************      BREADCRUMS     *********************-->
   <div id="breadcrums">
     <!-- RENDER BREADCRUMS ACCORDING TO STEP. S WHEN CLICK SHOW SECTION -->
     <a href="#">location</a> / <a href="#">category</a> / <a href="#">activity</a>
   </div>
 
-  <div id="search">
+  <div class="wrapper">
 
-<!--*********************      SELECT LOCATION     *********************-->
-
+    <!--*********************      SELECT LOCATION     *********************-->
     <div id="location" ng-hide="nerdVM.selectedCity">
       <h1>Location</h1>
       <select ng-model="nerdVM.selectedCity" ng-options="x for x in nerdVM.names">
@@ -29,8 +40,8 @@
 
               <p class="title">{{category.name | uppercase}}</p>
 
-            <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.selectedCategory = category">
-            </input>
+            <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.selectedCategory = category"/>
+
 
           </div>
       </div>
@@ -48,7 +59,7 @@
     </div>
 
     <!--*******************      SELECT ACTIVITY     *******************-->
-
+    
     <div id="nerdVM.activity" ng-show="nerdVM.selectedCategory && !nerdVM.selectedActivity">
       <h1>Choose An Activity</h1>
 
@@ -103,16 +114,14 @@
       </div>
     </div>
 
-<!--*********************      RESULTS     *********************-->
-
+    <!--*********************      RESULTS     *********************-->
     <div id="spot-list">
       <!-- LIST ALL 500PX SPOTS FROM LOCATION, CATEGORY AND nerdVM.activity -->
     </div>
 
+    <!--********************      RESULT DETAILS     ********************-->
+    
     <div id="spot">
-
-  <!--********************      RESULT DETAILS     ********************-->
-
       <div style="text-align:center;">
       <button ng-click="nerdVM.resultFunction()">Result</button>
       </div>
@@ -131,7 +140,6 @@
       <button ng-click="resultFunction()">Result</button>
       </div>
       -->
-      </div>
 
       <div class="spot-image" class="crop" ng-show="nerdVM.selectedActivity">
         <img ng-src="{{nerdVM.content}}" style="width:625px;height:625px"/>
@@ -140,8 +148,10 @@
       <div class="spot-info">
 
       </div>
-
     </div>
+
+  <!-- end wrapper -->
   </div>
 
+<!-- end app -->
 </div>
