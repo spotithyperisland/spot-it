@@ -255,14 +255,15 @@ h1, h2, h3, p, a {
 #category {
   background: #fff;
 }
+#category .wrapper {
+  padding: 5%;
+}
 #category .category {
   width: 31.333%;
   float: left;
   margin: 1%;
   text-align: center;
   height: auto;
-  line-height: auto;
-  font-size: 32px;
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
@@ -271,17 +272,18 @@ h1, h2, h3, p, a {
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 }
-#category .category img {
+#category .category input {
   width: 100%;
+  display: block;
 }
 #category .category h3 {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  padding: 28% 0;
-  background: rgba(0, 0, 0, 0.4);
+  padding: 2%;
+  margin: 24% 0;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 
 /* activity */
