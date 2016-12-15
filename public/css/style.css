@@ -328,27 +328,46 @@ p {
   left: 0;
   margin: 24% 0;
   padding: 3%;
-  font-size: 20px;
+  font-size: 17px;
   background: rgba(0, 0, 0, 0.6);
   pointer-events: none;
 }
 
 /* spot list */
 #spot-list {
-
+}
+#spot-list .wrapper {
+  padding: 5% 0;
 }
 #spot-list .spots {
   width: 23%;
   float: left;
   margin: 1%;
   text-align: center;
-  height: 150px;
-  line-height: 150px;
-  font-size: 26px;
+  height: auto;
+  line-height: auto;
+  font-size: 18px;
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+#spot-list .spots img {
+  width: 100%;
+  display: block;
+}
+#spot-list .spots h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 24% 0;
+  padding: 3%;
+  font-size: 17px;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 
 /* spot */
