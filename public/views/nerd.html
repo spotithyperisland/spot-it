@@ -1,18 +1,29 @@
 <!-- public/views/nerd.html -->
+<div id="app" class="jumbotron">
 
-<div id="content-inner-container" class="jumbotron text-center">
+  <!-- HEADER -->
+  <nav id="header" class="navbar navbar-inverse">
+    <div class="wrapper">
+      <a class="navbar-brand" href="/"><img src="images/logo-black.png"/></a>
+        <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+        <!--
+        <ul class="nav navbar-nav">
+            <li><a href="/nerds">App</a></li>
+        </ul>
+        -->
+      <a class="menu-icon" href="mailto:hyperspotit@gmail.com"><img src="images/email.png"/></a>
+    </div>
+  </nav>
 
-<!--*********************      BREADCRUMS     *********************-->
-
+  <!--*********************      BREADCRUMS     *********************-->
   <div id="breadcrums">
     <!-- RENDER BREADCRUMS ACCORDING TO STEP. S WHEN CLICK SHOW SECTION -->
     <a href="#">location</a> / <a href="#">category</a> / <a href="#">activity</a>
   </div>
 
-  <div id="search">
+  <div class="wrapper">
 
-<!--*********************      SELECT LOCATION     *********************-->
-
+    <!--*********************      SELECT LOCATION     *********************-->
     <div id="location" ng-hide="selectedCity = selectedCity">
       <h1>Location</h1>
       <select ng-model="selectedCity" ng-options="x for x in names">
@@ -20,8 +31,7 @@
       </select>
     </div>
 
-<!--*********************      SELECT CATEGORY     *********************-->
-
+    <!--*********************      SELECT CATEGORY     *********************-->
     <div id="category" ng-hide="selectedCategory" ng-show="selectedCity = selectedCity">
       <h1>Category</h1>
 
@@ -37,7 +47,6 @@
     </div>
 
     <!--*******************      SELECT ACTIVITY     *******************-->
-
     <div id="activity" ng-hide="selectedActivity" ng-show="selectedCategory = selectedCategory">
       <h1>Choose an activity</h1>
 
@@ -90,15 +99,13 @@
       </div>
     </div>
 
-<!--*********************      RESULTS     *********************-->
-
+    <!--*********************      RESULTS     *********************-->
     <div id="spot-list">
       <!-- LIST ALL 500PX SPOTS FROM LOCATION, CATEGORY AND ACTIVITY -->
     </div>
 
     <div id="spot">
-
-  <!--********************      RESULT DETAILS     ********************-->
+    <!--********************      RESULT DETAILS     ********************-->
       <!--
       <div style="text-align:center;">
       <button ng-click="resultFunction()">Result</button>
@@ -118,7 +125,6 @@
       <button ng-click="resultFunction()">Result</button>
       </div>
       -->
-      </div>
 
       <div class="spot-image" class="crop">
         <!--<img ng-src="{{content}}" style="width:625px;height:625px"/>-->
@@ -127,8 +133,10 @@
       <div class="spot-info">
 
       </div>
-
     </div>
+
+  <!-- end wrapper -->
   </div>
 
+<!-- end app -->
 </div>
