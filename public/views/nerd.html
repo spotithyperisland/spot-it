@@ -40,72 +40,27 @@
     <div class="wrapper">
         <div ng-repeat="category in nerdVM.categories">
           <p class="title">{{category.name | uppercase}}</p>
-          <div class="category" id="culture">
-            <h3>{{category.name | uppercase}}</h3>
+          <div class="category">
+            <!-- <h3>{{category.name | uppercase}}</h3> -->
             <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.selectedCategory = category"/>
           </div>
       </div>
-
-      <!-- <div class="category" id="outdoor"><img src="/background-images/categories/outdoor.jpg" alt="outdoor" height="" width=""><h3>Outdoor</h3></div>
-      <div class="category" id="sport"><img src="/background-images/categories/sport.jpg" alt="Sport" height="" width=""><h3>Sport</h3></div>
-      <div class="category" id="culture"><img src="/background-images/categories/culture.jpg" alt="Culture" height="" width=""><h3>Culture</h3></div> -->
     </div>
   </div>
 
-  <!--*******************      SELECT ACTIVITY     *******************-->
+  <!--*********************      SELECT ACTIVITY     *********************-->
   <div id="activity" ng-show="nerdVM.selectedCategory && !nerdVM.selectedActivity">
-  <!-- <div id="nerdVM.activity" ng-show="nerdVM.selectedCategory && !nerdVM.selectedActivity"> -->
     <div class="wrapper">
-      <h1>Choose An Activity</h1>
-
-      <select ng-model="nerdVM.selectedActivity" ng-options="x for x in nerdVM.activity">
-        <option value="">-- Choose An Activity --</option>
-      </select>
-
-      <!-- RENDER ACTIVITIES BASED ON LOCATION AND CATEGORY -->
-      <div class="outdoor-activities">
-        <div class="activity" id="archipelago"><img src="/background-images/activities/archipelago.jpg" alt="Archipelago" height="" width=""><h3>Archipelago</h3></div>
-        <div class="activity" id="birdwatching"><img src="/background-images/activities/birdwatching.jpg" alt="Birdwatching" height="" width=""><h3>Birdwatching</h3></div>
-        <div class="activity" id="camping"><img src="/background-images/activities/camping.jpg" alt="Camping" height="" width=""><h3>Camping</h3></div>
-        <div class="activity" id="climbing"><img src="/background-images/activities/climbing.jpg" alt="Climbing" height="" width=""><h3>Climbing</h3></div>
-        <div class="activity" id="dogpark"><img src="/background-images/activities/dogpark.jpg" alt="Dogpark" height="" width=""><h3>Dogpark</h3></div>
-        <div class="activity" id="grill"><img src="/background-images/activities/grill.jpg" alt="Grill" height="" width=""><h3>Grill</h3></div>
-        <div class="activity" id="horsebackriding"><img src="/background-images/activities/horsebackriding.jpg" alt="Horsebackriding" height="" width=""><h3>Horsebackriding</h3></div>
-        <div class="activity" id="hunting"><img src="/background-images/activities/hunting.jpg" alt="Hunting" height="" width=""><h3>Hunting</h3></div>
-        <div class="activity" id="iceskating"><img src="/background-images/activities/iceskating.jpg" alt="Iceskating" height="" width=""><h3>Iceskating</h3></div>
-        <div class="activity" id="kayaking"><img src="/background-images/activities/kayaking.jpg" alt="Kayaking" height="" width=""><h3>Kayaking</h3></div>
-        <div class="activity" id="mushroompicking"><img src="/background-images/activities/mushroompicking.jpg" alt="Mushroompicking" height="" width=""><h3>Mushroompicking</h3></div>
-        <div class="activity" id="northernlight"><img src="/background-images/activities/northernlight.jpg" alt="Northernlight" height="" width=""><h3>Northernlight</h3></div>
-        <div class="activity" id="park"><img src="/background-images/activities/park.jpg" alt="Park" height="" width=""><h3>Park</h3></div>
-        <div class="activity" id="parking"><img src="/background-images/activities/parking.jpg" alt="Parking" height="" width=""><h3>Parking</h3></div>
-        <div class="activity" id="picnic"><img src="/background-images/activities/picnic.jpg" alt="Picnic" height="" width=""><h3>Picnic</h3></div>
-        <div class="activity" id="running"><img src="/background-images/activities/running.jpg" alt="Running" height="" width=""><h3>Running</h3></div>
-        <div class="activity" id="skateing"><img src="/background-images/activities/skateing.jpg" alt="Skateing" height="" width=""><h3>Skateing</h3></div>
-        <div class="activity" id="surfing"><img src="/background-images/activities/surfing.jpg" alt="Surfing" height="" width=""><h3>Surfing</h3></div>
-        <div class="activity" id="swimming"><img src="/background-images/activities/swimming.jpg" alt="Swimming" height="" width=""><h3>Swimming</h3></div>
-        <div class="activity" id="walking"><img src="/background-images/activities/walking.jpg" alt="Walking" height="" width=""><h3>Walking</h3></div>
-
-      </div>
-      <div class="sport-activities">
-        <div class="activity" id="cycling"><img src="/background-images/activities/cycling.jpg" alt="Cycling" height="" width=""><h3>Cycling</h3></div>
-        <div class="activity" id="fishing"><img src="/background-images/activities/fishing.jpg" alt="Fishing" height="" width=""><h3>Fishing</h3></div>
-        <div class="activity" id="football"><img src="/background-images/activities/football.jpg" alt="Football" height="" width=""><h3>Football</h3></div>
-        <div class="activity" id="golfing"><img src="/background-images/activities/golfing.jpg" alt="Golfing" height="" width=""><h3>Golfing</h3></div>
-        <div class="activity" id="gym"><img src="/background-images/activities/gym.jpg" alt="Gym" height="" width=""><h3>Gym</h3></div>
-        <div class="activity" id="skiing"><img src="/background-images/activities/skiing.jpg" alt="Skiing" height="" width=""><h3>Skiing</h3></div>
-        <div class="activity" id="tennis"><img src="/background-images/activities/tennis.jpg" alt="Tennis" height="" width=""><h3>Tennis</h3></div>
-
-      </div>
-      <div class="culture-activities">
-        <div class="activity" id="dating"><img src="/background-images/activities/dating.jpg" alt="Dating" height="" width=""><h3>Dating</h3></div>
-        <div class="activity" id="festival"><img src="/background-images/activities/festival.jpg" alt="Festival" height="" width=""><h3>Festival</h3></div>
-        <div class="activity" id="meditation"><img src="/background-images/activities/meditation.jpg" alt="Meditation" height="" width=""><h3>Meditation</h3></div>
-        <div class="activity" id="reading"><img src="/background-images/activities/reading.jpg" alt="Reading" height="" width=""><h3>Reading</h3></div>
-        <div class="activity" id="rollerskating"><img src="/background-images/activities/rollerskating.jpg" alt="Rollerskating" height="" width=""><h3>Rollerskating</h3></div>
-        <div class="activity" id="stargazing"><img src="/background-images/activities/stargazing.jpg" alt="Stargazing" height="" width=""><h3>Stargazing</h3></div>
-        <div class="activity" id="sunset"><img src="/background-images/activities/sunset.jpg" alt="Sunset" height="" width=""><h3>Sunset</h3></div>
-        <div class="activity" id="viewpont"><img src="/background-images/activities/viewpont.jpg" alt="Viewpont" height="" width=""><h3>Viewpont</h3></div>
-        <div class="activity" id="waterfall"><img src="/background-images/activities/waterfall.jpg" alt="Waterfall" height="" width=""><h3>Waterfall</h3></div>
+        <div ng-repeat="category in nerdVM.categories | filter: nerdVM.selectedCategory.name">
+          <div ng-repeat="activity in category.activities">
+            <!-- <div ng-if="sports"> -->
+              <p class="title">{{activity.name | uppercase}}</p>
+              <div class="activitiy">
+                <!-- <h3>{{activities.name | uppercase}}</h3> -->
+                <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.resultFunction()"/>
+              <!-- </div> -->
+            </div>
+          </div>
       </div>
     </div>
   </div>
