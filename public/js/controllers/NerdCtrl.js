@@ -122,8 +122,8 @@ app.controller('NerdController', function($http) {
       ]
     },
     {
-      'icon': '/background-images/categories/sport.jpg',
-      'name': 'lesiure',
+      'icon': '/background-images/categories/culture.jpg',
+      'name': 'leisure',
       'activities':[
         {
           'icon': '/background-images/activities/dating.jpg',
