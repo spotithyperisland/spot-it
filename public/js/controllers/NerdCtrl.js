@@ -167,14 +167,11 @@ app.controller('NerdController', function($http) {
        .then(function(response) {
 
            var photos = response.data.photos;
-           console.log(vm.selectedCategory.name);
-           console.log(vm.selectedActivity);
-           console.log(photos);
+
            for (i = 0; i < photos.length; i++){
              vm.content = photos["0"].images["0"].https_url;
 
              vm.name = photos["0"].name;
-             //console.log(vm.name);
            }
        },
        function(response) {
