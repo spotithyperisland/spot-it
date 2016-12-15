@@ -168,9 +168,10 @@ app.controller('NerdController', function($http) {
 
            for (i = 0; i < photos.length; i++){
              vm.content = photos["0"].images["0"].https_url;
-
+             vm.resultData = photos;
              vm.name = photos["0"].name;
            }
+           console.log(vm.resultData);
        },
        function(response) {
          vm.content = "Something went wrong";
