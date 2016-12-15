@@ -42,10 +42,9 @@
   <div id="category" ng-show="nerdVM.selectedCity && !nerdVM.selectedCategory">
     <div class="wrapper">
         <div ng-repeat="category in nerdVM.categories">
-          <p class="title">{{category.name | uppercase}}</p>
           <div class="category">
-            <!-- <h3>{{category.name | uppercase}}</h3> -->
-            <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.selectedCategory = category"/>
+            <h3>{{category.name | uppercase}}</h3>
+            <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" ng-click="nerdVM.selectedCategory = category"/>
           </div>
       </div>
     </div>
@@ -56,12 +55,10 @@
     <div class="wrapper">
         <div ng-repeat="category in nerdVM.categories | filter: nerdVM.selectedCategory.name">
           <div ng-repeat="activity in category.activities">
-            <!-- <div ng-if="sports"> -->
-              <p class="title">{{activity.name | uppercase}}</p>
-              <div class="activitiy">
-                <!-- <h3>{{activities.name | uppercase}}</h3> -->
-                <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.resultFunction()"/>
-              <!-- </div> -->
+              <div class="activity">
+                <h3>{{activity.name | uppercase}}</h3>
+                <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" ng-click="nerdVM.resultFunction()"/>
+              </div>
             </div>
           </div>
       </div>
