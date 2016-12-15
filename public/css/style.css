@@ -17,6 +17,10 @@ html, body {
 h1, h2, h3, p, a {
   margin: 0;
   padding: 0;
+  line-height: 120%;
+}
+p {
+  line-height: 140%;
 }
 .jumbotron {
   padding: 0;
@@ -58,11 +62,17 @@ h1, h2, h3, p, a {
 #header .wrapper {
   max-width: 1100px;
   display: table;
+  padding: 0 10%;
 }
-#header .wrapper a {
-  max-width: 1100px;
+#header .navbar-brand,
+#header .wrapper .menu-icon {
   display: table-cell;
   vertical-align: middle;
+}
+#header .menu-icon {
+  width: 12px;
+  max-width: 12px;
+  text-align: center;
 }
 #header .navbar-brand,
 #header .menu-icon {
@@ -74,10 +84,7 @@ h1, h2, h3, p, a {
   cursor: pointer;
 }
 .navbar-brand>img {
-  display: inline-block;
-}
-#header .menu-icon {
-  text-align: right;
+  display: block;
 }
 #header .navbar-brand img {
   width: auto;
@@ -86,6 +93,7 @@ h1, h2, h3, p, a {
 #header .menu-icon img {
   width: auto;
   height: 24px;
+  width: 24px;
 }
 #content {
   /*
@@ -98,7 +106,9 @@ h1, h2, h3, p, a {
 
 /* LANDING PAGE */
 #landing-page {
-
+}
+#landing-page .wrapper {
+  padding: 0 10%;
 }
 #landing-page .slogan {
   width: 90%;
@@ -128,7 +138,7 @@ h1, h2, h3, p, a {
   width: 100%;
   height: 100%;
   font-size: 38px;
-  margin: 0 0 1.5% 0;
+  margin: 2% 0 2.5% 0;
   text-align: center;
   color: #fff;
   display: inline-block;
@@ -142,7 +152,7 @@ h1, h2, h3, p, a {
   background-color: #fff;
 }
 #footer .wrapper {
-
+  padding: 0;
 }
 #footer .footer-box {
   width: 27.333%;
@@ -173,14 +183,14 @@ h1, h2, h3, p, a {
   height: 100vh;
 }
 #app #header {
-  height: 10%;
+  height: 15%;
 }
 
 #breadcrums {
   font-size: 18px;
   color: #000;
   width: 100%;
-  height: 7%;
+  height: 10%;
   padding: 0;
   margin: 0;
   background-color: #333;
@@ -199,7 +209,7 @@ h1, h2, h3, p, a {
 
 #location, #category, #activity, #spot-list, #spot {
   width: 100%;
-  height: 83%;
+  height: 75%;
   padding: 0;
   margin: 0;
 }
@@ -222,7 +232,7 @@ h1, h2, h3, p, a {
   -webkit-border-radius: 8px;
   border-radius: 8px;
   color: #fff;
-  background: url(../images/arrow.png) no-repeat;
+  background: rgba(0, 0, 0, 0.2) url(../images/arrow.png) no-repeat;
   background-position: right 10px center;
   background-size: 20px 10px;
 }
@@ -231,12 +241,11 @@ h1, h2, h3, p, a {
   background: transparent;
   width: 100%;
   margin-left: 10px;
-  height: 54px !important;
-  font-size: 12pt;
+  height: 100%;
+  font-size: 13px;
   color: grey;
   border: 0;
   border-radius: 0;
-  height: 40px;
   -webkit-appearance: none;
 }
 #location .select_join select:focus {
@@ -255,14 +264,15 @@ h1, h2, h3, p, a {
 #category {
   background: #fff;
 }
+#category .wrapper {
+  padding: 5%;
+}
 #category .category {
   width: 31.333%;
   float: left;
   margin: 1%;
   text-align: center;
   height: auto;
-  line-height: auto;
-  font-size: 32px;
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
@@ -271,17 +281,18 @@ h1, h2, h3, p, a {
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 }
-#category .category img {
+#category .category input {
   width: 100%;
+  display: block;
 }
 #category .category h3 {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  padding: 28% 0;
-  background: rgba(0, 0, 0, 0.4);
+  padding: 2%;
+  margin: 24% 0;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 
 /* activity */
@@ -357,6 +368,7 @@ h1, h2, h3, p, a {
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */
   #landing-page .slogan h1 {
     font-size: 26px;
+    padding: 0 0 20% 0;
   }
   #landing-page .slogan .cta {
     max-width: 300px;
@@ -364,19 +376,63 @@ h1, h2, h3, p, a {
   #landing-page .slogan .cta a {
     font-size: 28px;
   }
+  #footer .footer-box {
+    width: 94%;
+    margin: 5% 3%;
+    float: left;
+  }
+  #footer .footer-box h2 {
+    margin: 0;
+  }
+  #landing-page .wrapper {
+    padding: 0 3%;
+  }
+  #landing-page .slogan {
+    width: 100%;
+    margin: 20% 0;
+  }
+  #header .wrapper {
+    padding: 0 5%;
+  }
+  #footer .wrapper {
+    padding: 5% 3% 1% 3%;
+  }
 }
 @media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 
 }
 @media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  #landing-page .slogan {
+    width: 90%;
+    margin: 10% 5%;
+  }
   #landing-page .slogan h1 {
     font-size: 36px;
+    padding: 0 0 12% 0;
   }
   #landing-page .slogan .cta {
     max-width: 400px;
   }
   #landing-page .slogan .cta a {
     font-size: 34px;
+    margin: 2% 0 2.5% 0;
+  }
+  #footer .footer-box {
+    width: 27.333%;
+    margin: 3%;
+    float: left;
+  }
+  #footer .footer-box h2 {
+    margin: 0 0 1% 0;
+  }
+  #landing-page .wrapper {
+    padding: 0 10%;
+  }
+  #header .wrapper {
+    padding: 0 10%;
+  }
+  #footer .wrapper {
+    padding: 1% 0 0 0;
   }
 }
 @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
