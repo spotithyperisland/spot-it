@@ -164,14 +164,15 @@ app.controller('NerdController', function($http) {
 
        .then(function(response) {
 
-           const photos = response.data.photos;
+         const photos = response.data.photos;
 
-           for (i = 0; i < photos.length; i++){
-             vm.content = photos["0"].images["0"].https_url;
-             vm.resultData = photos;
-             vm.name = photos["0"].name;
-           }
-           console.log(vm.resultData);
+         for (i = 0; i < photos.length; i++){
+          vm.content = photos[0].images[0].https_url;
+          vm.resultData = photos;
+          vm.name = photos["0"].name;
+          console.log(vm.resultData);
+           console.log(vm.content);
+         }
        },
        function(response) {
          vm.content = "Something went wrong";
