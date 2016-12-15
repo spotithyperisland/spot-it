@@ -72,9 +72,13 @@
        <div ng-repeat="result in nerdVM.resultData">
          <div ng-repeat="photo in result.images">
            <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
-             <img ng-src="{{result.images[0].https_url}}" style="width:625px;height:625px"/>
+             <div class="crop spots">
+               <h3>SPOT LOCATION</h3>
+               <img ng-src="{{result.images[0].https_url}}" style="width:625px;height:625px"/>
+             </div>
            </div>
         </div>
+
         </div>
       </div>
     </div>
