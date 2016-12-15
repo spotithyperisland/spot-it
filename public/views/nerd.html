@@ -66,13 +66,15 @@
     </div>
   </div>
 
-  <!--*********************      SELECT ACTIVITY     *********************-->
+  <!--*********************      SELECT SPOT     *********************-->
   <div id="spot-list" ng-show="nerdVM.selectedActivity">
     <div class="wrapper">
-       <div ng-repeat="photos in nerdVM.resultData">
-         <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
-         <img ng-src="{{nerdVM.content}}" style="width:625px;height:625px"/>
-         </div>
+       <div ng-repeat="result in nerdVM.resultData">
+         <div ng-repeat="photo in result.images">
+           <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
+             <img ng-src="{{result.images[0].https_url}}" style="width:625px;height:625px"/>
+           </div>
+        </div>
         </div>
       </div>
     </div>
