@@ -10,7 +10,7 @@ app.controller('NerdController', function($http) {
     vm.categories =
     [
     {
-      icon: '/background-images/categories/test.jpg',
+      icon: '/background-images/categories/sport.jpg',
       name: 'sports',
       /*vm.activities: {
         icon: '/background-images/activities/test.jpg',
@@ -18,7 +18,7 @@ app.controller('NerdController', function($http) {
       }*/
     },
     {
-      icon: '/background-images/categories/test.jpg',
+      icon: '/background-images/categories/outdoor.jpg',
       name: 'outdoor',
       /*vm.activities: {
         icon: '/background-images/activities/test.jpg',
@@ -26,7 +26,7 @@ app.controller('NerdController', function($http) {
       }*/
     },
     {
-      icon: '/background-images/categories/test.jpg',
+      icon: '/background-images/categories/culture.jpg',
       name: 'culture',
       /*vm.activities: {
         icon: '/background-images/activities/test.jpg',
