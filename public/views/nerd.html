@@ -38,22 +38,17 @@
   <!--*********************      SELECT CATEGORY     *********************-->
   <div id="category" ng-show="nerdVM.selectedCity && !nerdVM.selectedCategory">
     <div class="wrapper">
-      <div class="thumbnail">
         <div ng-repeat="category in nerdVM.categories">
           <p class="title">{{category.name | uppercase}}</p>
-          <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.selectedCategory = category"/>
-        </div>
+          <div class="category" id="culture">
+            <h3>{{category.name | uppercase}}</h3>
+            <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.selectedCategory = category"/>
+          </div>
       </div>
 
-      <select ng-model="selectedCategory" ng-options="x for x in category">
-        <option value="">-- Choose A Category --</option>
-      </select>
-      <!--
-      <a href="#" ng-click="activity = !selectedActivity" class="btn btn-primary btn-lg">Next</a>
-      -->
-      <div class="category" id="outdoor"><img src="/background-images/categories/outdoor.jpg" alt="outdoor" height="" width=""><h3>Outdoor</h3></div>
+      <!-- <div class="category" id="outdoor"><img src="/background-images/categories/outdoor.jpg" alt="outdoor" height="" width=""><h3>Outdoor</h3></div>
       <div class="category" id="sport"><img src="/background-images/categories/sport.jpg" alt="Sport" height="" width=""><h3>Sport</h3></div>
-      <div class="category" id="culture"><img src="/background-images/categories/culture.jpg" alt="Culture" height="" width=""><h3>Culture</h3></div>
+      <div class="category" id="culture"><img src="/background-images/categories/culture.jpg" alt="Culture" height="" width=""><h3>Culture</h3></div> -->
     </div>
   </div>
 
