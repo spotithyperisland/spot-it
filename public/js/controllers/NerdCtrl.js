@@ -69,6 +69,7 @@ app.directive('appInfo', function() {
       storeData.setUserCategory(category);
     }*/
 
+            // how can I make sure it includes any of them and not just [0]
 
 // --*********************      RESULTS     *********************--
 
@@ -109,11 +110,11 @@ app.directive('appInfo', function() {
     this.category = category;
   }
 
-  this.getUserActivity = function() {
-    return this.activity;
-  }
+      this.getUserActivity = function() {
+        return this.activity;
+      }
 
-  this.getUserCategory = function() {
-    return this.category;
-  }
-});*/
+      this.getUserCategory = function() {
+        return this.category;
+      }
+    });*/
