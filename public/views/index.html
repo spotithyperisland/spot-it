@@ -1,11 +1,13 @@
 <!-- public/index.html -->
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover different activities and places in your city with Spotit. Explore new outdoor activities, cultural happenings and hidden locations every day.">
     <base href="/">
 
-    <title>Spot It</title>
+    <title>Spotit | Discover your city/live your city</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
@@ -21,25 +23,13 @@
     <script src="js/services/NerdService.js"></script>
     <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
-</head>
-<body ng-app="sampleApp" ng-controller="NerdController">
-<div class="container">
 
-    <!-- HEADER -->
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Spot It</a>
-        </div>
-
-        <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
-        <ul class="nav navbar-nav">
-            <li><a href="/nerds">App</a></li>
-        </ul>
-    </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+  <body ng-app="sampleApp" ng-controller="NerdController">
 
     <!-- ANGULAR DYNAMIC CONTENT -->
-    <div ng-view></div>
+    <div id="content" ng-view></div>
 
-</div>
-</body>
+  </body>
 </html>

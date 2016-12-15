@@ -1,70 +1,114 @@
 // public/js/controllers/NerdCtrl.js
-angular.module('NerdCtrl', []).controller('NerdController', function($scope, $http) {
+const app = angular.module('NerdCtrl', []);
 
-        $scope.names = ["Stockholm"/*, "London", "New York"*/];
+app.controller('NerdController', function($http) {
+    var vm = this;
+    vm.names = ["Stockholm", "London", "New York"];
 
-        $scope.categoryList = [];
-        $scope.category = ["Park", "City", "Lake"];
+    vm.activity = ["walk", "swim", "run"];
 
-        $scope.changedCategory = function(item) {
-                $scope.categoryList.push(item);
-            }
-            // console.log('Does it change?', $scope.selectedCategory);
-        $scope.activityList = [];
-        $scope.activity = ["Walk", "Swim", "Run"];
+    vm.categories =
+    [
+    {
+      icon: '/background-images/categories/test.jpg',
+      name: 'sports',
+      /*vm.activities: {
+        icon: '/background-images/activities/test.jpg',
+        name: 'football',
+      }*/
+    },
+    {
+      icon: '/background-images/categories/test.jpg',
+      name: 'outdoor',
+      /*vm.activities: {
+        icon: '/background-images/activities/test.jpg',
+        name: 'football',
+      }*/
+    },
+    {
+      icon: '/background-images/categories/test.jpg',
+      name: 'culture',
+      /*vm.activities: {
+        icon: '/background-images/activities/test.jpg',
+        name: 'football',
+      }*/
+    }
+  ];
 
-        $scope.changedActivity = function(item) {
-                $scope.activityList.push(item);
-            }
+  vm.getCategoryName = function() {
+    return vm.category[0].name;
+  };
 
-        // query 500px db for results on click ================
-        $scope.resultFunction = function() {
-            let consumer_key = "qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE";
-            let location = {
-                lat: '59.3293',
-                lng: '18.063240'
-            }; // somehow get detail
-            let radius = '5'; // user input in km or predefined*
-            //let activity = "walk";
-            //let category = "park";
+// --*******************      SELECT ACTIVITY     *******************--
+/* user input for activity ==================
+    vm.getActivity = function() {
+      vm.userActivity =  storeData.getUserActivity();
+    }
+
+    vm.setActivity = function(activity) {
+      storeData.setUserActivity(activity);
+    }
+
+// --*********************      SELECT CATEGORY     *********************--
+
+app.directive('appInfo', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      info: '='
+    },
+    templateUrl: 'js/directives/appInfo.html'
+  };
+});
+
+    vm.getCategory = function() {
+      vm.userCategory =  storeData.getUserCategory();
+    }
+
+    vm.setCategory = function(category) {
+      storeData.setUserCategory(category);
+    }*/
 
             // how can I make sure it includes any of them and not just [0]
 
-            // select-options ===============================================
-            //console.log($scope.categoryList.length);
-            //console.log($scope.activityList);
-            if ($scope.categoryList.length && $scope.activityList.length !== 0) {
-                $http.get("https://api.500px.com/v1/photos/search?term=" + $scope.categoryList + "&tag=" + $scope.activityList + "&image_size=%201080&geo=" + location.lat + "%2C" + location.lng + "%2C" + radius + "km&consumer_key=" + consumer_key)
-                    .then(function(response) {
+// --*********************      RESULTS     *********************--
 
-                            var photos = response.data.photos;
-                            //console.log($scope.selectedCategory);
-                            //console.log(photos);
-                            for (i = 0; i < photos.length; i++) {
-                                $scope.content = photos["0"].images["0"].https_url;
+    vm.resultFunction = function() {
+      let consumer_key = "qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE";
+      let location = {lat: '59.3293', lng: '18.063240'}; // somehow get detail
+      let radius = '5'; // user input in km or predefined*
+      //let activity = "walk";
+      //let category = "park";
 
-                                $scope.name = photos["0"].name;
-                                //console.log($scope.name);
-                            }
-                        },
-                        function(response) {
-                            $scope.content = "Something went wrong";
-                        });
-            }
-            else {
-                $scope.errorMessage = 'error message';
-                console.log('error message');
-            }
-        }
-    })
-    /*.service("storeData", function(){
-      this.setUserActivity = function(activity) {
-        this.activity = activity;
-      }
+       $http.get("https://api.500px.com/v1/photos/search?term="+vm.selectedCategory.name+"&tag="+vm.selectedActivity+"&image_size=%201080&geo="+location.lat+"%2C"+location.lng+"%2C"+radius+"km&consumer_key="+consumer_key)
 
-      this.setUserCategory = function(category) {
-        this.category = category;
-      }
+       .then(function(response) {
+
+           var photos = response.data.photos;
+           console.log(vm.selectedCategory.name);
+           console.log(vm.selectedActivity);
+           console.log(photos);
+           for (i = 0; i < photos.length; i++){
+             vm.content = photos["0"].images["0"].https_url;
+
+             vm.name = photos["0"].name;
+             //console.log(vm.name);
+           }
+       },
+       function(response) {
+         vm.content = "Something went wrong";
+       });
+
+  }
+})
+/*.service("storeData", function(){
+  this.setUserActivity = function(activity) {
+    this.activity = activity;
+  }
+
+  this.setUserCategory = function(category) {
+    this.category = category;
+  }
 
       this.getUserActivity = function() {
         return this.activity;
