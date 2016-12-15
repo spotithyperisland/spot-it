@@ -13,63 +13,64 @@
 
 <!--*********************      SELECT LOCATION     *********************-->
 
-    <div id="location" ng-hide="selectedCity = selectedCity">
+    <div id="location" ng-hide="nerdVM.selectedCity">
       <h1>Location</h1>
-      <select ng-model="selectedCity" ng-options="x for x in names">
+      <select ng-model="nerdVM.selectedCity" ng-options="x for x in nerdVM.names">
         <option value="">-- Choose A City --</option>
       </select>
     </div>
 
 <!--*********************      SELECT CATEGORY     *********************-->
 
-    <div id="category" ng-hide="selectedCategory" ng-show="selectedCity = selectedCity">
-      <h1>Category</h1>
+    <div id="category" ng-show="nerdVM.selectedCity && !nerdVM.selectedCategory">
 
-      <select ng-model="selectedCategory" ng-options="x for x in category">
-        <option value="">-- Choose A Category --</option>
-      </select>
-      <!--
-      <a href="#" ng-click="activity = !selectedActivity" class="btn btn-primary btn-lg">Next</a>
-      -->
-      <div class="category" id="outdoor"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Outdoor</div>
-      <div class="category" id="sport"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Sport</div>
-      <div class="category" id="culture"><img src="/background-images/categories/test.jpg" alt="Camping" height="" width="">Culture</div>
+      <div class="thumbnail">
+          <div ng-repeat="category in nerdVM.categories">
+
+              <p class="title">{{category.name | uppercase}}</p>
+
+            <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.selectedCategory = category">
+            </input>
+
+          </div>
+      </div>
+
     </div>
 
     <!--*******************      SELECT ACTIVITY     *******************-->
 
-    <div id="activity" ng-hide="selectedActivity" ng-show="selectedCategory = selectedCategory">
-      <h1>Choose an activity</h1>
+    <div id="nerdVM.activity" ng-show="nerdVM.selectedCategory && !nerdVM.selectedActivity">
+      <h1>Choose An Activity</h1>
 
-      <select ng-model="selectedActivity" ng-options="x for x in activity">
+      <select ng-model="nerdVM.selectedActivity" ng-options="x for x in nerdVM.activity">
         <option value="">-- Choose An Activity --</option>
       </select>
 
       <!-- RENDER ACTIVITIES BASED ON LOCATION AND CATEGORY -->
       <div class="outdoor-activities">
-        <div class="activity" id="camping"><img src="/background-images/activities/test.jpg" alt="Camping" height="" width="">Camping</div>
-        <div class="activity" id="fishing"><img src="/background-images/activities/test.jpg" alt="Fishing" height="" width="">Fishing</div>
-        <div class="activity" id="grill"><img src="/background-images/activities/test.jpg" alt="Grill" height="" width="">Grill</div>
-        <div class="activity" id="meditation"><img src="/background-images/activities/test.jpg" alt="Meditation" height="" width="">Meditation</div>
-        <div class="activity" id="parking"><img src="/background-images/activities/test.jpg" alt="Parking" height="" width="">Parking</div>
-        <div class="activity" id="picnic"><img src="/background-images/activities/test.jpg" alt="Picnic" height="" width="">Picnic</div>
-        <div class="activity" id="read"><img src="/background-images/activities/test.jpg" alt="Read" height="" width="">Read</div>
-        <div class="activity" id="run"><img src="/background-images/activities/test.jpg" alt="Run" height="" width="">Run</div>
-        <div class="activity" id="swim"><img src="/background-images/activities/test.jpg" alt="Swim" height="" width="">Swim</div>
-        <div class="activity" id="viewpoint"><img src="/background-images/activities/test.jpg" alt="Viewpoint" height="" width="">Viewpoint</div>
-        <div class="activity" id="walk"><img src="/background-images/activities/test.jpg" alt="Walk" height="" width="">Walk</div>
+        <div class="nerdVM.activity" id="camping"><img src="/background-images/activities/test.jpg" alt="Camping" height="" width="">Camping</div>
+        <div class="nerdVM.activity" id="fishing"><img src="/background-images/activities/test.jpg" alt="Fishing" height="" width="">Fishing</div>
+        <div class="nerdVM.activity" id="grill"><img src="/background-images/activities/test.jpg" alt="Grill" height="" width="">Grill</div>
+        <div class="nerdVM.activity" id="meditation"><img src="/background-images/activities/test.jpg" alt="Meditation" height="" width="">Meditation</div>
+        <div class="nerdVM.activity" id="parking"><img src="/background-images/activities/test.jpg" alt="Parking" height="" width="">Parking</div>
+        <div class="nerdVM.activity" id="picnic"><img src="/background-images/activities/test.jpg" alt="Picnic" height="" width="">Picnic</div>
+        <div class="nerdVM.activity" id="read"><img src="/background-images/activities/test.jpg" alt="Read" height="" width="">Read</div>
+        <div class="nerdVM.activity" id="run"><img src="/background-images/activities/test.jpg" alt="Run" height="" width="">Run</div>
+        <div class="nerdVM.activity" id="swim"><img src="/background-images/activities/test.jpg" alt="Swim" height="" width="">Swim</div>
+        <div class="nerdVM.activity" id="viewpoint"><img src="/background-images/activities/test.jpg" alt="Viewpoint" height="" width="">Viewpoint</div>
+        <div class="nerdVM.activity" id="walk"><img src="/background-images/activities/test.jpg" alt="Walk" height="" width="">Walk</div>
       </div>
 
 
       <div class="sport-activities">
-        <div class="activity" id="cycling"><img src="/background-images/activities/test.jpg" alt="Cycling" height="" width="">Cycling</div>
-        <div class="activity" id="football"><img src="/background-images/activities/test.jpg" alt="Football" height="" width="">Football</div>
-        <div class="activity" id="golf"><img src="/background-images/activities/test.jpg" alt="Golf" height="" width="">Golf</div>
-        <div class="activity" id="gym"><img src="/background-images/activities/test.jpg" alt="Gym" height="" width="">Gym</div>
-        <div class="activity" id="iceskate"><img src="/background-images/activities/test.jpg" alt="Iceskate" height="" width="">Iceskate</div>
-        <div class="activity" id="skate"><img src="/background-images/activities/test.jpg" alt="Skate" height="" width="">Skate</div>
-        <div class="activity" id="ski"><img src="/background-images/activities/test.jpg" alt="Ski" height="" width="">Ski</div>
-        <div class="activity" id="tennis"><img src="/background-images/activities/test.jpg" alt="Tennis" height="" width="">Tennis</div>
+        <div class="nerdVM.activity" id="cycling"><img src="/background-images/activities/test.jpg" alt="Cycling" height="" width="">Cycling</div>
+        <div class="nerdVM.activity" id="football"><img src="/background-images/activities/test.jpg" alt="Football" height="" width="">Football</div>
+        <div class="nerdVM.activity" id="golf"><img src="/background-images/activities/test.jpg" alt="Golf" height="" width="">Golf</div>
+        <div class="nerdVM.activity" id="gym"><img src="/background-images/activities/test.jpg" alt="Gym" height="" width="">Gym</div>
+        <div class="nerdVM.activity" id="iceskate"><img src="/background-images/activities/test.jpg" alt="Iceskate" height="" width="">Iceskate</div>
+        <div class="nerdVM.activity" id="skate"><img src="/background-images/activities/test.jpg" alt="Skate" height="" width="">Skate</div>
+        <div class="nerdVM.activity" id="ski"><img src="/background-images/activities/test.jpg" alt="Ski" height="" width="">Ski</div>
+        <div class="nerdVM.activity" id="tennis"><img src="/background-images/activities/test.jpg" alt="Tennis" height="" width="">Tennis</div>
       </div>
       <div class="culture-activities">
 
@@ -79,15 +80,15 @@
 <!--*********************      RESULTS     *********************-->
 
     <div id="spot-list">
-      <!-- LIST ALL 500PX SPOTS FROM LOCATION, CATEGORY AND ACTIVITY -->
+      <!-- LIST ALL 500PX SPOTS FROM LOCATION, CATEGORY AND nerdVM.activity -->
     </div>
 
     <div id="spot">
 
   <!--********************      RESULT DETAILS     ********************-->
-      <!--
+
       <div style="text-align:center;">
-      <button ng-click="resultFunction()">Result</button>
+      <button ng-click="nerdVM.resultFunction()">Result</button>
       </div>
 
       <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
@@ -97,7 +98,7 @@
       <div class="spot">
       <h1>{{name}}</h1>
       </div>
-      -->
+
 
       <!--
       <div style="text-align:center;">
@@ -106,9 +107,9 @@
       -->
       </div>
 
-      <div class="spot-image" class="crop">
-        <!--<img ng-src="{{content}}" style="width:625px;height:625px"/>-->
-        <img src="background-images/activities/viewpoint.jpg" />
+      <div class="spot-image" class="crop" ng-show="nerdVM.selectedActivity">
+
+        <img ng-src="{{nerdVM.content}}" style="width:625px;height:625px"/>
       </div>
 
       <div class="spot-info">
