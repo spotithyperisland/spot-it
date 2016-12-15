@@ -162,7 +162,7 @@ app.controller('NerdController', function($http) {
       //let activity = "walk";
       //let category = "park";
 
-       $http.get("https://api.500px.com/v1/photos/search?term="+vm.selectedCategory.name+"&tag="+vm.selectedActivity+"&image_size=%201080&geo="+location.lat+"%2C"+location.lng+"%2C"+radius+"km&consumer_key="+consumer_key)
+       $http.get("https://api.500px.com/v1/photos/search?term="+vm.selectedCategory.name+"&tag="+vm.selectedActivity.name+"&image_size=%201080&geo="+location.lat+"%2C"+location.lng+"%2C"+radius+"km&consumer_key="+consumer_key)
 
        .then(function(response) {
 

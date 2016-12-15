@@ -51,13 +51,13 @@
   </div>
 
   <!--*********************      SELECT ACTIVITY     *********************-->
-  <div id="activity" ng-show="nerdVM.selectedCategory && !nerdVM.selectedActivity">
+  <div id="activity" ng-show="nerdVM.selectedCategory">
     <div class="wrapper">
         <div ng-repeat="category in nerdVM.categories | filter: nerdVM.selectedCategory.name">
           <div ng-repeat="activity in category.activities">
               <div class="activity">
                 <h3>{{activity.name | uppercase}}</h3>
-                <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" ng-click="nerdVM.resultFunction()"/>
+                <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" ng-click="nerdVM.selectedActivity = activity"/>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
       </div>
 
       <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
-      <img ng-src="{{content}}" style="width:625px;height:625px"/>
+      <img ng-src="{{nerdVM.content}}" style="width:625px;height:625px"/>
       </div>
 
       <div class="spot">
