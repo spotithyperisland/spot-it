@@ -42,10 +42,9 @@
   <div id="category" ng-show="nerdVM.selectedCity && !nerdVM.selectedCategory">
     <div class="wrapper">
         <div ng-repeat="category in nerdVM.categories">
-          <p class="title">{{category.name | uppercase}}</p>
           <div class="category">
-            <!-- <h3>{{category.name | uppercase}}</h3> -->
-            <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" style="width:31.33%;height:10%" ng-click="nerdVM.selectedCategory = category"/>
+            <h3>{{category.name | uppercase}}</h3>
+            <input type="image" ng-model="nerdVM.selectedCategory" ng-src="{{category.icon}}" ng-click="nerdVM.selectedCategory = category"/>
           </div>
       </div>
     </div>
