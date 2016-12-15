@@ -55,32 +55,25 @@
   <!--*********************      SELECT ACTIVITY     *********************-->
   <div id="activity" ng-show="nerdVM.selectedCategory && !nerdVM.selectedActivity">
     <div class="wrapper">
-        <div ng-repeat="category in nerdVM.categories | filter: nerdVM.selectedCategory.name">
-          <div ng-repeat="activity in category.activities">
-              <div class="activity">
-                <h3>{{activity.name | uppercase}}</h3>
-                <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" ng-click="nerdVM.selectedActivity = activity; nerdVM.resultFunction()"/>
-              </div>
-            </div>
+      <div ng-repeat="category in nerdVM.categories | filter: nerdVM.selectedCategory.name">
+        <div ng-repeat="activity in category.activities">
+          <div class="activity">
+            <h3>{{activity.name | uppercase}}</h3>
+            <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" ng-click="nerdVM.selectedActivity = activity; nerdVM.resultFunction()"/>
           </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!--*********************      SELECT ACTIVITY     *********************-->
-  <div id="spot" ng-show="nerdVM.selectedActivity">
+  <div id="spot-list" ng-show="nerdVM.selectedActivity">
     <div class="wrapper">
-        <!-- <div ng-repeat="category in nerdVM.categories | filter: nerdVM.selectedCategory.name">
-          <div ng-repeat="activity in category.activities">
-              <div class="activity">
-                <h3>{{activity.name | uppercase}}</h3>
-                <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" ng-click="nerdVM.selectedActivity = activity; nerdVM.resultFunction()"/>
-              </div>
-            </div>
-          </div> -->
-          <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
-          <img ng-src="{{nerdVM.content}}" style="width:625px;height:625px"/>
-          </div>
+       <div ng-repeat="photos in nerdVM.resultData">
+         <div class="crop" style="width:535px;height:535px;overflow:hidden;align">
+         <img ng-src="{{nerdVM.content}}" style="width:625px;height:625px"/>
+         </div>
+        </div>
       </div>
     </div>
   </div>
@@ -88,26 +81,18 @@
   <!--*********************      RESULTS     *********************-->
   <div id="spot">
     <div class="wrapper">
-
-
       <div class="spot">
       <h1>{{name}}</h1>
       </div>
-
       <!--********************      RESULT DETAILS     ********************-->
-
       <!--
       <div style="text-align:center;">
       <button ng-click="resultFunction()">Result</button>
       </div>
-
-
       <div class="spot-image" class="crop" ng-show="nerdVM.selectedActivity">
         <img ng-src="{{nerdVM.content}}" style="width:625px;height:625px"/>
       </div>-->
-
       <div class="spot-info">
-
       </div>
     </div>
   </div>
