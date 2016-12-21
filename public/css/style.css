@@ -179,12 +179,11 @@ p {
   height: 100vh;
 }
 #app #header {
-  height: 15%;
 }
 
 #breadcrums {
   width: 100%;
-  height: 10%;
+  height: 50px;
   padding: 0;
   margin: 0;
   background-color: #333;
@@ -212,7 +211,7 @@ p {
 
 #location, #category, #activity, #spot-list, #spot {
   width: 100%;
-  height: 75%;
+  height: 100%;
   padding: 0;
   margin: 0;
 }
@@ -268,7 +267,7 @@ p {
   background: #fff;
 }
 #category .wrapper {
-  padding: 5% 0;
+  padding: 2% 0;
 }
 #category .category {
   width: 31.333%;
@@ -302,7 +301,7 @@ p {
 #activity {
 }
 #activity .wrapper {
-  padding: 5% 0;
+  padding: 2% 0;
 }
 #activity .activity {
   width: 23%;
@@ -310,7 +309,6 @@ p {
   margin: 1%;
   text-align: center;
   height: auto;
-  line-height: auto;
   font-size: 18px;
   text-transform: uppercase;
   color: #fff;
@@ -330,27 +328,47 @@ p {
   left: 0;
   margin: 24% 0;
   padding: 3%;
-  font-size: 20px;
+  font-size: 17px;
   background: rgba(0, 0, 0, 0.6);
   pointer-events: none;
 }
 
 /* spot list */
 #spot-list {
-
+}
+#spot-list .wrapper {
+  padding: 2% 0;
 }
 #spot-list .spots {
   width: 23%;
+  max-height: 130px;
+  overflow: hidden;
   float: left;
   margin: 1%;
   text-align: center;
-  height: 150px;
-  line-height: 150px;
-  font-size: 26px;
+  height: auto;
+  font-size: 18px;
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+#spot-list .spots img {
+  width: 100%;
+  display: block;
+}
+#spot-list .spots h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 24% 0;
+  padding: 3%;
+  font-size: 17px;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 
 /* spot */
@@ -401,6 +419,26 @@ p {
   #footer .wrapper {
     padding: 5% 3% 1% 3%;
   }
+  #spot-list .spots {
+    width: 98%;
+    max-height: 400px;
+  }
+  #activity .activity {
+    width: 98%;
+  }
+  #spot-list .spots h3,
+  #activity .activity h3 {
+    margin: 30% 0;
+    padding: 3%;
+    font-size: 22px;
+  }
+  #category .category {
+    width: 98%;
+  }
+  #category .category h3 {
+    padding: 3%;
+    margin: 26% 0;
+  }
 }
 @media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 
@@ -434,6 +472,26 @@ p {
   #footer .wrapper {
     padding: 1% 0 0 0;
   }
+  #spot-list .spots {
+    width: 48%;
+    max-height: 200px;
+  }
+  #activity .activity {
+    width: 48%;
+  }
+  #spot-list .spots h3,
+  #activity .activity h3 {
+    margin: 24% 0;
+    padding: 3%;
+    font-size: 20px;
+  }
+  #category .category {
+    width: 31.333%;
+  }
+  #category .category h3 {
+    padding: 3%;
+    margin: 24% 0;
+  }
 }
 @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
   #landing-page .slogan h1 {
@@ -441,6 +499,11 @@ p {
   }
   #landing-page .slogan .cta a {
     font-size: 38px;
+  }
+  #spot-list .spots h3 {
+    margin: 24% 0;
+    padding: 3%;
+    font-size: 17px;
   }
 }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
