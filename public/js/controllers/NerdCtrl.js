@@ -41,7 +41,7 @@ app.controller('NerdController', function($http) {
       'activities':[
         {
           'icon': '/background-images/activities/archipelago.jpg',
-          'name': 'archipelago',
+          'name': 'landscape',
         },
         {
           'icon': '/background-images/activities/birdwatching.jpg',
@@ -156,11 +156,18 @@ app.controller('NerdController', function($http) {
 // --*********************      RESULTS     *********************--
 
     vm.resultFunction = function() {
-      const consumer_key = "qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE";
-      const location = {lat: '59.3293', lng: '18.063240'}; // somehow get detail
+      const consumer_key = 'qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE';
+      const term = 'stockholm';
+      const tag = 'sun';
+      const exclude = 'Nude,Abstract,Macro';
+      const sort = 'rating';
+      const tags = 'landscape';
+      const imageSize = '%201080';
+      const location = {lat: '59.3293', lng: '18.0686'}; // Stockholm
+      // const location = {lat: '49.2827', lng: '123.1207'}; // Vancouver
       const radius = '5'; // user input in km or predefined*
 
-       $http.get("https://api.500px.com/v1/photos/search?term="+vm.selectedCategory.name+"&tag="+vm.selectedActivity.name+"&image_size=%201080&geo="+location.lat+"%2C"+location.lng+"%2C"+radius+"km&consumer_key="+consumer_key)
+       $http.get("https://api.500px.com/v1/photos/search?term=stockholm&tag=sun&only=Nature&exclude=Nude,Abstract,Macro&sort=rating&tags=landscape&image_size=%201080&geo="+location.lat+"%2C"+location.lng+"%2C"+radius+"km&rpp=12&consumer_key="+consumer_key)
 
        .then(function(response) {
 

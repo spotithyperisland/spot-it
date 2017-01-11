@@ -72,15 +72,16 @@
        <div ng-repeat="result in nerdVM.resultData">
          <div ng-repeat="photo in result.images">
              <div class="crop spots">
-               <h3>SPOT LOCATION</h3>
+               <h3>{{result.name}}</h3>
                <img ng-src="{{result.images[0].https_url}}"/>
+               <input type="image" ng-model="nerdVM.selectedActivity" ng-src="{{activity.icon}}" ng-click="nerdVM.selectedActivity = activity; nerdVM.resultFunction()"/>
              </div>
            </div>
         </div>
     </div>
   </div>
 
-  <!--*********************      RESULTS     *********************-->
+  <!--*********************      RESULT     *********************-->
   <div id="spot">
     <div class="wrapper">
       <div class="spot">
