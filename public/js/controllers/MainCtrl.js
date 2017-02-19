@@ -1,6 +1,6 @@
 // public/js/controllers/MainCtrl.js
-angular.module('MainCtrl', []).controller('MainController', function($scope) {
+const home = angular.module('MainCtrl', []);
 
-    $scope.tagline = 'Explore';
-
-});
+home.controller('MainController', ['$scope', function($scope) {
+	$scope.tagline = 'Explore';
+}]);
