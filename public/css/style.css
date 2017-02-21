@@ -167,7 +167,7 @@ p {
 
 /* APP */
 #app {
-  background: url('/../images/bg.jpg') no-repeat center center fixed;
+  /*background: url('/../images/bg.jpg') no-repeat center center fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -267,11 +267,11 @@ p {
   background: #fff;
 }
 #category .wrapper {
-  padding: 5% 0;
+  padding: 2% 0;
 }
 #category .category {
   width: 31.333%;
-  float: right;
+  float: left;
   margin: 1%;
   text-align: center;
   height: auto;
@@ -301,11 +301,11 @@ p {
 #activity {
 }
 #activity .wrapper {
-  padding: 5% 0;
+  padding: 2% 0;
 }
 #activity .activity {
   width: 23%;
-  float: right;
+  float: left;
   margin: 1%;
   text-align: center;
   height: auto;
@@ -337,26 +337,28 @@ p {
 #spot-list {
 }
 #spot-list .wrapper {
-  padding: 5% 0;
+  padding: 2% 0;
 }
 #spot-list .spots {
   width: 23%;
+  max-height: 130px;
+  overflow: hidden;
   float: left;
   margin: 1%;
   text-align: center;
   height: auto;
-  line-height: auto;
   font-size: 18px;
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
   position: relative;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  /*-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);*/
+  /*-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);*/
+  /*box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);*/
 }
 #spot-list .spots img {
-  width: 100%;
+  /*width: 100%;*/
+	height: 100%;
   display: block;
 }
 #spot-list .spots h3 {
@@ -418,6 +420,26 @@ p {
   #footer .wrapper {
     padding: 5% 3% 1% 3%;
   }
+  #spot-list .spots {
+    width: 98%;
+    max-height: 400px;
+  }
+  #activity .activity {
+    width: 98%;
+  }
+  #spot-list .spots h3,
+  #activity .activity h3 {
+    margin: 30% 0;
+    padding: 3%;
+    font-size: 22px;
+  }
+  #category .category {
+    width: 98%;
+  }
+  #category .category h3 {
+    padding: 3%;
+    margin: 26% 0;
+  }
 }
 @media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 
@@ -451,6 +473,26 @@ p {
   #footer .wrapper {
     padding: 1% 0 0 0;
   }
+  #spot-list .spots {
+    width: 48%;
+    /*max-height: 200px;*/
+  }
+  #activity .activity {
+    width: 48%;
+  }
+  #spot-list .spots h3,
+  #activity .activity h3 {
+    margin: 24% 0;
+    padding: 3%;
+    font-size: 20px;
+  }
+  #category .category {
+    width: 31.333%;
+  }
+  #category .category h3 {
+    padding: 3%;
+    margin: 24% 0;
+  }
 }
 @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
   #landing-page .slogan h1 {
@@ -458,6 +500,11 @@ p {
   }
   #landing-page .slogan .cta a {
     font-size: 38px;
+  }
+  #spot-list .spots h3 {
+    margin: 24% 0;
+    padding: 3%;
+    font-size: 17px;
   }
 }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */

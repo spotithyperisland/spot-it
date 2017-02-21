@@ -41,7 +41,7 @@ app.controller('NerdController', function($http) {
       'activities':[
         {
           'icon': '/background-images/activities/archipelago.jpg',
-          'name': 'archipelago',
+          'name': 'landscape',
         },
         {
           'icon': '/background-images/activities/birdwatching.jpg',
@@ -154,29 +154,114 @@ app.controller('NerdController', function($http) {
   ];
 
 // --*********************      RESULTS     *********************--
+    function relevantTag(tag) {
+    return tag >= 10;
+    }
+
 
     vm.resultFunction = function() {
-      const consumer_key = "qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE";
-      const location = {lat: '59.3293', lng: '18.063240'}; // somehow get detail
+      const consumer_key = 'qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE';
+      const term = 'city'; // keyword
+      const tag = 'travel';
+      const exclude = 'Nude,Macro,People,Abstract';
+      const sort = '_score';
+      const tags = 'travel';
+      const imageSize = '%201080';
+      const location = {lat: '59.3293', lng: '18.0686'}; // Stockholm
+      // const location = {lat: '49.2827', lng: '123.1207'}; // Vancouver
       const radius = '5'; // user input in km or predefined*
+      const numberOfResults = '25';
 
-       $http.get("https://api.500px.com/v1/photos/search?term="+vm.selectedCategory.name+"&tag="+vm.selectedActivity.name+"&image_size=%201080&geo="+location.lat+"%2C"+location.lng+"%2C"+radius+"km&consumer_key="+consumer_key)
-
+       $http.get('https://api.500px.com/v1/photos/search?term='+term+'exclude='+exclude+'&rpp='+numberOfResults+'&image_size='+imageSize+'&geo='+location.lat+'%2C'+location.lng+'%2C'+radius+'&sort='+sort+'&tags=1&consumer_key='+consumer_key)
        .then(function(response) {
-
          const photos = response.data.photos;
+        //  console.log(photos.length);
+         let allTags = [];
 
-         for (i = 0; i < photos.length; i++){
+         for (let i = 0; i < photos.length; ++i) {
+           let tagArray = photos[i].tags;
+           console.log(tagArray);
+           for (let i = 0; i < tags.length; ++i) {
+             let tags = tagArray[i];
+             allTags.push(tags)
+           }
+         }
+
+        //  console.log(photos);
+        //  console.log(allTags);
+
+         allTags.sort();
+
+         var current = null;
+         let tagName = [];
+         let tagCount = [];
+          var cnt = 0;
+          for (var i = 0; i < allTags.length; i++) {
+            if (allTags[i] != current) {
+                if (cnt > 0) {
+                  tagName.push(current);
+                  tagCount.push(cnt);
+                  // console.log({[current]: cnt});
+                    // console.log(current + ' used --> ' + cnt + ' times');
+                }
+                current = allTags[i];
+                cnt = 1;
+            } else {
+                cnt++;
+            }
+          }
+          if (cnt > 0) {
+            let group = {
+              current: cnt
+            }
+            // console.log(current + ' used --> ' + cnt + ' times');
+          }
+
+          let tagResults = {
+            category: tagName,
+            count: tagCount,
+          }
+          console.log(tagResults);
+          // console.save(tagResults,'Travel');
+
+         for (i = 0; i < photos.length; ++i){
           vm.content = photos[0].images[0].https_url;
           vm.resultData = photos;
           vm.name = photos["0"].name;
-          console.log(vm.resultData);
-           console.log(vm.content);
+          // console.log(vm.resultData);
+          //  console.log(vm.content);
          }
        },
        function(response) {
          vm.content = "Something went wrong";
        });
+
+       (function(console){
+
+    console.save = function(data, filename){
+
+        if(!data) {
+            console.error('Console.save: No data')
+            return;
+        }
+
+        if(!filename) filename = 'console.json'
+
+        if(typeof data === "object"){
+            data = JSON.stringify(data, undefined, 4)
+        }
+
+        var blob = new Blob([data], {type: 'text/json'}),
+            e    = document.createEvent('MouseEvents'),
+            a    = document.createElement('a')
+
+        a.download = filename
+        a.href = window.URL.createObjectURL(blob)
+        a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
+        e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+        a.dispatchEvent(e)
+    }
+})(console)
 
   }
 })

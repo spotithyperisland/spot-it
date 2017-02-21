@@ -1,0 +1,46 @@
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Discover different activities and places in your city with Spotit. Explore new outdoor activities, cultural happenings and hidden locations every day.">
+		<base href="/">
+
+		<title>Spotit | Discover your city/live your city</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body ng-app="spots" ng-controller="spotsController">
+
+		<div id="app" class="jumbotron">
+
+		  <!-- HEADER -->
+		  <nav id="header" class="navbar navbar-inverse">
+		    <div class="wrapper">
+		      <a class="navbar-brand" href="/"><img src="images/logo-black.png"/></a>
+
+		        <div class="menu-icon"><a href="mailto:hyperspotit@gmail.com"><img src="images/email.png" alt="Email us"/></a></div>
+		        <div class="menu-icon"><a href="https://twitter.com/hyperspotit"><img src="images/twitter.png" alt="Find us on Twitter"/></a></div>
+		        <div class="menu-icon"><a href="https://www.instagram.com/hyperspotit/"><img src="images/instagram.png" alt="Find us on Instagram"/></a></div>
+		        <div class="menu-icon"><a href="https://www.facebook.com/hyperspotit/"><img src="images/facebook.png" alt="Find us on Facebook"/></a></div>
+		    </div>
+		  </nav>
+
+		<div id="spot-list">
+			<div class="wrapper">
+				<div ng-repeat = "spot in spots">
+					<div class="crop spots">
+						<img ng-src="{{spot.images[0].https_url}}" alt="City" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+		<script src="app.js"></script>
+	</body>
+
+</html>
