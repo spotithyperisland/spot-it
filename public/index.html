@@ -29,17 +29,10 @@
 		    </div>
 		  </nav>
 
-		<div id="spot-list">
-			<div class="wrapper">
-				<div ng-repeat = "spot in spots">
-					<div class="crop spots">
-						<img ng-src="{{spot.images[0].https_url}}" alt="City" />
-					</div>
-				</div>
-			</div>
-		</div>
+		<div ng-view></div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 		<script src="app.js"></script>
 	</body>
 
