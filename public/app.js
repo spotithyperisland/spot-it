@@ -42,8 +42,6 @@
 
 	spots.controller('spotsController', ['$scope', '$http', 'userService',
 		function($scope, $http, userService) {
-			console.log(userService.getUser());
-
 			$scope.getSpots = function() {
 				const term = userService.getUser();
 
