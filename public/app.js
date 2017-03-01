@@ -23,8 +23,25 @@
 	});
 
 
+	spots.factory('spotsFactory', ['$http', 'userService',
+		function spotsFactory($http, userService) {
+			const spots = {};
+
+			spots.get = function(callback) {
+				const term = userService.getUser();
+
+				$http.get('http://localhost:3000/api/spots/' + term)
+				.then(function(response) {
+					callback(response.data);
+				});
+			};
+
+			return spots;
+		}]);
+
+
 	spots.controller('searchController', ['$scope', 'userService',
-		function($scope, userService) {
+		function($scope, userService, MyService) {
 			$scope.master = {};
 
 			$scope.update = function(user) {
@@ -40,14 +57,11 @@
 		}]);
 
 
-	spots.controller('spotsController', ['$scope', '$http', 'userService',
-		function($scope, $http, userService) {
+	spots.controller('spotsController', ['$scope', 'userService', 'spotsFactory',
+		function($scope, userService, spotsFactory) {
 			$scope.getSpots = function() {
-				const term = userService.getUser();
-
-				$http.get('http://localhost:3000/api/spots/' + term)
-				.then(function(response) {
-					$scope.spots = response.data;
+				$scope.spots = spotsFactory.get(function(data) {
+					$scope.spots = data;
 				});
 			};
 		}]);
