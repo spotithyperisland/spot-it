@@ -60,7 +60,7 @@
 			controller: 'homeController',
 		})
 		.when('/search-flow', {
-			templateUrl: 'search-flow.html',
+			templateUrl: 'search.html',
 			controller: 'searchController',
 		})
 		.when('/spots', {

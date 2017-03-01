@@ -11,7 +11,7 @@
 	  </div> -->
 
 		<div class="form-group">
-	    <label for="term">Term</label>
+	    <label for="term">Spot</label>
 	    <input type="text" class="form-control" id="name" placeholder="Ocean" ng-model="user.term">
 	  </div>
 
@@ -19,8 +19,7 @@
 	    <label for="term">City</label>
 	    <input type="text" class="form-control" id="name" placeholder="Vancouver" ng-model="user.city">
 	  </div> -->
-    <input type="button" ng-click="reset()" value="Reset" />
-    <input type="submit" ng-click="update(user)" value="Save"/>
-		<a class="btn btn-default" ng-href="/spots" role="button" ng-click = "getSpots()">FIRE</a>
+    <!-- <input type="button" ng-click="reset()" value="Reset" /> -->
+		<a class="btn btn-default" ng-href="/spots" role="button" ng-click = "update(user); getSpots();">Search</a>
 </div>
 <!-- <a id='link-1' ng-href="/spots" ng-click = "getSpots()">FIRE</a> -->
