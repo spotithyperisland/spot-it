@@ -4,9 +4,11 @@ const router = new express.Router();
 const rp = require('request-promise');
 
 
-router.route('/:term')
+router.route('/spots')
 	.get((req, res, next) => {
-		const term = req.params.term;
+		const term = req.query.term;
+		const geo = req.query.geo;
+		console.log(geo);
 
 		const options = {
 			uri: 'https://api.500px.com/v1/photos/search',

@@ -4,11 +4,6 @@
 	const spots = angular.module('spots', ['ngRoute']);
 
 
-	spots.controller('homeController', ['$scope', function($scope) {
-		$scope.tagline = 'Explore';
-	}]);
-
-
 	spots.service('userService', function UserService() {
 		this.save = function(name, email, term, city) {
 			this.name = name;
@@ -16,23 +11,51 @@
 			this.term = term;
 			this.city = city;
 		};
-
-		this.getUser = function() {
+		this.getCity = function() {
+			return this.city;
+		};
+		this.getTerm = function() {
 			return this.term;
 		};
 	});
 
 
-	spots.factory('spotsFactory', ['$http', 'userService',
-		function spotsFactory($http, userService) {
+	spots.factory('locationFactory', ['$http', 'userService',
+		function($http, userService) {
+			const location = {};
+
+			location.get = function(callback) {
+				const city = userService.getCity();
+
+				$http.get('http://localhost:3000/api/location?city=' + city)
+				.then(function(response) {
+					location.lat = response.data.lat;
+					location.lng = response.data.lng;
+					if (callback) {
+						callback(response.data);
+					}
+				});
+			};
+			return location;
+		}]);
+
+
+	spots.factory('spotsFactory', ['$http', 'userService', 'locationFactory',
+		function spotsFactory($http, userService, myLocation) {
 			const spots = {};
 
 			spots.get = function(callback) {
-				const term = userService.getUser();
+				const term = userService.getTerm();
+				const lat = myLocation.lat;
+				const lng = myLocation.lng;
+				const radius = 0;
+				const geo = lat + ',' + lng + ',' + radius;
 
-				$http.get('http://localhost:3000/api/spots/' + term)
+				$http.get('http://localhost:3000/api/spots?term=' + term + '&geo=' + geo)
 				.then(function(response) {
-					callback(response.data);
+					if (callback) {
+						callback(response.data);
+					}
 				});
 			};
 
@@ -40,13 +63,19 @@
 		}]);
 
 
-	spots.controller('searchController', ['$scope', 'userService',
-		function($scope, userService, MyService) {
+	spots.controller('homeController', ['$scope', function($scope) {
+		$scope.tagline = 'Explore';
+	}]);
+
+
+	spots.controller('searchController', ['$scope', 'userService', 'locationFactory',
+		function($scope, userService, myLocation) {
 			$scope.master = {};
 
 			$scope.update = function(user) {
 				$scope.master = angular.copy(user);
 				userService.save(user.name, user.email, user.term, user.city);
+				myLocation.get();
 			};
 
 			$scope.reset = function() {
