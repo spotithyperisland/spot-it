@@ -43,21 +43,22 @@
 			const spots = {};
 			const location = {};
 
-			myLocation.get(function(data) {
-				location.lat = data.lat;
-				location.lng = data.lng;
-				location.radius = 5;
-			});
-
 			spots.get = function(callback) {
 				const term = userService.getTerm();
-				const geo = location.lat + ',' + location.lng + ',' + location.radius;
 
-				$http.get('http://localhost:3000/api/spots?term=' + term + '&geo=' + geo)
-				.then(function(response) {
-					if (callback) {
-						callback(response.data);
-					}
+				myLocation.get(function(data) {
+					location.lat = data.lat;
+					location.lng = data.lng;
+					location.radius = 5;
+
+					const geo = location.lat + ',' + location.lng + ',' + location.radius;
+
+					$http.get('http://localhost:3000/api/spots?term=' + term + '&geo=' + geo)
+					.then(function(response) {
+						if (callback) {
+							callback(response.data);
+						}
+					});
 				});
 			};
 
@@ -70,31 +71,26 @@
 	}]);
 
 
-	spots.controller('searchController', ['$scope', 'userService', 'locationFactory',
-		function($scope, userService, myLocation) {
+	spots.controller('searchController', ['$scope', 'userService', 'locationFactory', 'spotsFactory',
+		function($scope, userService, myLocation, spotsFactory) {
 			$scope.master = {};
 
 			$scope.update = function(user) {
 				$scope.master = angular.copy(user);
+
 				userService.save(user.name, user.email, user.term, user.city);
-				myLocation.get();
+
+				spotsFactory.get(function(data) {
+					$scope.spots = data;
+				});
 			};
+
 
 			$scope.reset = function() {
 				$scope.user = angular.copy($scope.master);
 			};
 
 			$scope.reset();
-		}]);
-
-
-	spots.controller('spotsController', ['$scope', 'userService', 'spotsFactory',
-		function($scope, userService, spotsFactory) {
-			$scope.getSpots = function() {
-				$scope.spots = spotsFactory.get(function(data) {
-					$scope.spots = data;
-				});
-			};
 		}]);
 
 
@@ -110,7 +106,7 @@
 		})
 		.when('/spots', {
 			templateUrl: 'spots.html',
-			controller: 'spotsController',
+			controller: 'searchController',
 		});
 
 		$locationProvider.html5Mode(true);
