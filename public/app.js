@@ -29,8 +29,6 @@
 
 				$http.get('http://localhost:3000/api/location?city=' + city)
 				.then(function(response) {
-					location.lat = response.data.lat;
-					location.lng = response.data.lng;
 					if (callback) {
 						callback(response.data);
 					}
@@ -43,13 +41,17 @@
 	spots.factory('spotsFactory', ['$http', 'userService', 'locationFactory',
 		function spotsFactory($http, userService, myLocation) {
 			const spots = {};
+			const location = {};
+
+			myLocation.get(function(data) {
+				location.lat = data.lat;
+				location.lng = data.lng;
+				location.radius = 5;
+			});
 
 			spots.get = function(callback) {
 				const term = userService.getTerm();
-				const lat = myLocation.lat;
-				const lng = myLocation.lng;
-				const radius = 0;
-				const geo = lat + ',' + lng + ',' + radius;
+				const geo = location.lat + ',' + location.lng + ',' + location.radius;
 
 				$http.get('http://localhost:3000/api/spots?term=' + term + '&geo=' + geo)
 				.then(function(response) {
