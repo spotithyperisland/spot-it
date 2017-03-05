@@ -23,6 +23,7 @@ app.use(express.static(__dirname + '/public'));
 // route app
 app.use('/api', require('./api/spots/routes/get_spots'));
 app.use('/api', require('./api/spots/routes/get_location'));
+app.use('/api', require('./api/spots/routes/get_feature_spots'));
 
 // start server
 app.listen(port, hostname, (err) => {

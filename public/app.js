@@ -66,13 +66,31 @@
 		}]);
 
 
+	spots.factory('featureSpotsFactory', ['$http',
+		function spotsFactory($http) {
+			const spots = {};
+
+			spots.get = function(callback) {
+				$http.get('http://localhost:3000/api/feature_spots')
+				.then(function(response) {
+					console.log(response);
+					if (callback) {
+						callback(response.data);
+					}
+				});
+			};
+
+			return spots;
+		}]);
+
+
 	spots.controller('homeController', ['$scope', function($scope) {
 		$scope.tagline = 'Explore';
 	}]);
 
 
-	spots.controller('searchController', ['$scope', 'userService', 'locationFactory', 'spotsFactory',
-		function($scope, userService, myLocation, spotsFactory) {
+	spots.controller('searchController', ['$scope', 'userService',
+		function($scope, userService) {
 			$scope.master = {};
 
 			$scope.update = function(user) {
@@ -100,6 +118,17 @@
 		}]);
 
 
+	spots.controller('featureSpotsController', ['$scope', 'featureSpotsFactory',
+		function($scope, featureSpotsFactory) {
+			$scope.getFeatureSpots = function() {
+				featureSpotsFactory.get(function(data) {
+					console.log(data);
+					$scope.featureSpots = data;
+				});
+			};
+		}]);
+
+
 	spots.config(function($routeProvider, $locationProvider) {
 		$routeProvider
 		.when('/', {
@@ -113,6 +142,10 @@
 		.when('/spots', {
 			templateUrl: 'spots.html',
 			controller: 'spotsController',
+		})
+		.when('/feature_spots', {
+			templateUrl: 'feature_spots.html',
+			controller: 'featureSpotsController',
 		});
 
 		$locationProvider.html5Mode(true);
