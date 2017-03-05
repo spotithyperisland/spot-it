@@ -8,7 +8,6 @@ router.route('/spots')
 	.get((req, res, next) => {
 		const term = req.query.term;
 		const geo = req.query.geo;
-		console.log(req.query);
 
 		const options = {
 			uri: 'https://api.500px.com/v1/photos/search',

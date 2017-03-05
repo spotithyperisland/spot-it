@@ -79,10 +79,6 @@
 				$scope.master = angular.copy(user);
 
 				userService.save(user.name, user.email, user.term, user.city);
-
-				spotsFactory.get(function(data) {
-					$scope.spots = data;
-				});
 			};
 
 
@@ -91,6 +87,16 @@
 			};
 
 			$scope.reset();
+		}]);
+
+
+	spots.controller('spotsController', ['$scope', 'userService', 'spotsFactory',
+		function($scope, userService, spotsFactory) {
+			$scope.getSpots = function() {
+				spotsFactory.get(function(data) {
+					$scope.spots = data;
+				});
+			};
 		}]);
 
 
@@ -106,7 +112,7 @@
 		})
 		.when('/spots', {
 			templateUrl: 'spots.html',
-			controller: 'searchController',
+			controller: 'spotsController',
 		});
 
 		$locationProvider.html5Mode(true);
