@@ -33,7 +33,8 @@ router.route('/feature_spots')
 
 			const filteredSpots = spots.filter(hasLocation);
 
-			console.log(`There are ${spots.length} feature spots and ${filteredSpots.length} have locations.`);
+			console.log(`There are ${spots.length} feature spots and
+				${filteredSpots.length} have locations.`);
 			res.send(filteredSpots);
 		})
 		.catch((err) => {

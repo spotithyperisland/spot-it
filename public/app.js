@@ -38,32 +38,34 @@
 		}]);
 
 
-	spots.factory('spotsFactory', ['$http', 'userService', 'locationFactory',
-		function spotsFactory($http, userService, myLocation) {
-			const spots = {};
-			const location = {};
+	spots.factory('spotsFactory',
+		['$http', 'userService', 'locationFactory',
+			function spotsFactory($http, userService, myLocation) {
+				const spots = {};
+				const location = {};
 
-			spots.get = function(callback) {
-				const term = userService.getTerm();
+				spots.get = function(callback) {
+					const term = userService.getTerm();
 
-				myLocation.get(function(data) {
-					location.lat = data.lat;
-					location.lng = data.lng;
-					location.radius = 5;
+					myLocation.get(function(data) {
+						location.lat = data.lat;
+						location.lng = data.lng;
+						location.rad = 5;
 
-					const geo = location.lat + ',' + location.lng + ',' + location.radius;
+						const geo = location.lat + ',' + location.lng + ',' + location.rad;
 
-					$http.get('http://localhost:3000/api/spots?term=' + term + '&geo=' + geo)
-					.then(function(response) {
-						if (callback) {
-							callback(response.data);
-						}
+						$http.get('http://localhost:3000/api/spots?term=' + term + '&geo=' + geo)
+						.then(function(response) {
+							spots.result = response.data;
+							if (callback) {
+								callback(response.data);
+							}
+						});
 					});
-				});
-			};
+				};
 
-			return spots;
-		}]);
+				return spots;
+			}]);
 
 
 	spots.factory('featureSpotsFactory', ['$http',
@@ -73,7 +75,6 @@
 			spots.get = function(callback) {
 				$http.get('http://localhost:3000/api/feature_spots')
 				.then(function(response) {
-					console.log(response);
 					if (callback) {
 						callback(response.data);
 					}
@@ -89,44 +90,48 @@
 	}]);
 
 
-	spots.controller('searchController', ['$scope', 'userService',
-		function($scope, userService) {
-			$scope.master = {};
+	spots.controller('searchController',
+		['$scope', 'userService', 'spotsFactory', 'featureSpotsFactory',
+			function($scope, userService, spotsFactory, featureSpotsFactory) {
+				$scope.master = {};
 
-			$scope.update = function(user) {
-				$scope.master = angular.copy(user);
+				$scope.update = function(user) {
+					$scope.master = angular.copy(user);
 
-				userService.save(user.name, user.email, user.term, user.city);
-			};
+					userService.save(user.name, user.email, user.term, user.city);
+
+					spotsFactory.get();
+				};
+
+				$scope.getFeatureSpots = function() {
+					featureSpotsFactory.get();
+				};
+
+				$scope.reset = function() {
+					$scope.user = angular.copy($scope.master);
+				};
+
+				$scope.reset();
+			}]);
 
 
-			$scope.reset = function() {
-				$scope.user = angular.copy($scope.master);
-			};
-
-			$scope.reset();
-		}]);
-
-
-	spots.controller('spotsController', ['$scope', 'userService', 'spotsFactory',
-		function($scope, userService, spotsFactory) {
-			$scope.getSpots = function() {
+	spots.controller('spotsController',
+		['$scope', 'spotsFactory',
+			function($scope, spotsFactory) {
 				spotsFactory.get(function(data) {
 					$scope.spots = data;
 				});
-			};
-		}]);
+			}]);
 
 
-	spots.controller('featureSpotsController', ['$scope', 'featureSpotsFactory',
-		function($scope, featureSpotsFactory) {
-			$scope.getFeatureSpots = function() {
+	spots.controller('featureSpotsController',
+		['$scope', 'featureSpotsFactory',
+			function($scope, featureSpotsFactory) {
 				featureSpotsFactory.get(function(data) {
 					console.log(data);
-					$scope.featureSpots = data;
+					$scope.spots = data;
 				});
-			};
-		}]);
+			}]);
 
 
 	spots.config(function($routeProvider, $locationProvider) {
