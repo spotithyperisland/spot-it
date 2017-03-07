@@ -20,7 +20,7 @@
 
 						const geo = location.lat + ',' + location.lng + ',' + location.rad;
 
-						$http.get('http://localhost:3000/api/spots?term=' + term + '&geo=' + geo)
+						$http.get('api/spots?term=' + term + '&geo=' + geo)
 						.then(function(response) {
 							spots.result = response.data;
 							if (callback) {
