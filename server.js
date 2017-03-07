@@ -26,15 +26,15 @@ app.use('/api', require('./api/spots/routes/get_location'));
 app.use('/api', require('./api/spots/routes/get_feature_spots'));
 
 // start test server
-app.listen(port, hostname, (err) => {
-	if (err) {
-		console.log(err);
-	}
-
-	console.log(`Server is running at http://${hostname}:${port}`);
-});
+// app.listen(port, hostname, (err) => {
+// 	if (err) {
+// 		console.log(err);
+// 	}
+//
+// 	console.log(`Server is running at http://${hostname}:${port}`);
+// });
 
 // start production server
 app.listen(port, function() {
-	console.log(`Spot It is running on http://localhost: + ${port}`);
+	console.log(`Spot It is running on http://localhost:${port}`);
 });
