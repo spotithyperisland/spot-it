@@ -133,7 +133,7 @@ p {
   color: #000;
   text-decoration: none;
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
   font-size: 38px;
   margin: 2% 0 2.5% 0;
   text-align: center;
@@ -167,7 +167,7 @@ p {
 
 /* APP */
 #app {
-  /*background: url('/../images/bg.jpg') no-repeat center center fixed;*/
+  background: url('/../images/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
