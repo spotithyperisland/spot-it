@@ -1,6 +1,9 @@
 {
   "name": "spotit-node-angular",
   "main": "server.js",
+	"scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "body-parser": "~1.4.2",
     "cors": "^2.8.1",
