@@ -20,6 +20,10 @@
 		.when('/feature_spots', {
 			templateUrl: 'feature_spots.html',
 			controller: 'featureSpotsController',
+		})
+		.when('/spot', {
+			templateUrl: 'spot.html',
+			controller: 'spotController',
 		});
 
 		$locationProvider.html5Mode(true);

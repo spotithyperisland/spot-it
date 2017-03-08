@@ -3,13 +3,13 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const cors = require('cors');
-const hostname = 'localhost';
+// const cors = require('cors');
+// const hostname = 'localhost';
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.use(cors());
+// app.use(cors());
 
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 
@@ -35,6 +35,10 @@ app.use('/api', require('./api/spots/routes/get_feature_spots'));
 // });
 
 // start production server
-app.listen(port, function() {
+app.listen(port, (err) => {
+	if (err) {
+		console.log(err);
+	}
+
 	console.log(`Spot It is running on http://localhost:${port}`);
 });

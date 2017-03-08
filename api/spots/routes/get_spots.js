@@ -14,12 +14,12 @@ router.route('/spots')
 			qs: {
 				consumer_key: 'qzAmxoU2zfeuiIS4hIDJCOs49aUWAWgqoVyYo0PE',
 				term: term,
-				// geo: '59.3293,18.0686,5',
 				geo: geo,
 				exclude: 'Nude,Macro,People,Abstract',
 				sort: '_score',
 				image_size: '600',
 				rpp: '6',
+				tags: 1,
 			},
 			headers: {
 				'User-Agent': 'Request-Promise',
