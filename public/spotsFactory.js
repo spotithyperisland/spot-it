@@ -16,7 +16,7 @@
 					myLocation.get(function(data) {
 						location.lat = data.lat;
 						location.lng = data.lng;
-						location.rad = 5;
+						location.rad = '25km';
 
 						const geo = location.lat + ',' + location.lng + ',' + location.rad;
 
