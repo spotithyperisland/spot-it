@@ -16,7 +16,7 @@ router.route('/spots')
 				term: term,
 				geo: geo,
 				exclude: 'Nude,Macro,People,Abstract',
-				sort: '_score',
+				// sort: '_score',
 				image_size: '600',
 				rpp: '6',
 				tags: 1,

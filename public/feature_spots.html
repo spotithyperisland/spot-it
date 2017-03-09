@@ -2,7 +2,9 @@
 	<div class="wrapper">
 		<div ng-repeat = "spot in spots">
 			<div class="crop spots">
-				<img ng-src="{{spot.images[0].https_url}}" alt="City" />
+				<a ng-href="/feature_spot" ng-click="getSpot(spot)">
+					<img ng-src="{{spot.images[0].https_url}}" alt="City"/>
+				</a>
 			</div>
 		</div>
 	</div>
